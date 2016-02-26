@@ -1,2 +1,4 @@
 <h1>Animal Listing</h1>
-<a ui-sref="profile({id: 1})">View Caramel</a>
+<li ng-repeat="animal in animals">
+  <a ui-sref="profile({name: animal.name})">View {{animal.name}}</a>
+</li>

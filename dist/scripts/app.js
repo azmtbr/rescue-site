@@ -20,9 +20,15 @@
 			})
 
 			.state('profile', {
-				url: '/animals/:id',
+				url: '/animals/:name',
 				controller: 'profileController as profile',
 				templateUrl: '/templates/profile.html'
+			})
+
+			.state('adoption-form', {
+				url: '/adoption-form',
+				controller: 'adoptionFormController as adoptionForm',
+				templateUrl: '/templates/adoption-form.html'
 			});
 	}
 

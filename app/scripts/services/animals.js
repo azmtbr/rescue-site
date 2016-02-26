@@ -5,20 +5,23 @@
        id: 1,
 			 name: 'Caramel',
        breed: 'DSH',
-       sex: 'female'
+       sex: 'Female'
     };
 
     var fido = {
       id : 2,
-      name: "Fido",
-      breed: 'dog',
-      sex: 'male'
+      name: 'Fido',
+      breed: 'Dog',
+      sex: 'Male'
     };
 
 		return {
       getCollection: function() {
   				return [fido, caramel];
-  		}
+  		},
+			getAnimal: function() {
+					return caramel;
+			}
 
     };
 	}
