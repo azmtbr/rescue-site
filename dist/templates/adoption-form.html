@@ -2,16 +2,31 @@
   <h1>Adoption Form</h1>
 
   <div class="adoption-form-body">
-      <form class="form">
+      <form ng-submit="sendAdoptionForm()">
         <h6>Your name</h6>
-        <input type="text" ng-model="adopterName" class="form-control" placeholder="Enter Name" />
+        <input type="text" ng-model="composeForm.adopterName" class="form-control" placeholder="Enter Name" />
         <h6>Animal name</h6>
-        <input type="text" ng-model="selectedAnimal" class="form-control" placeholder="Animal Name" />
+        <input type="text" ng-model="composeForm.selectedAnimal" class="form-control" placeholder="Animal Name" />
+      </br>
         <div class="adoption-form-button">
             <button class="btn btn-primary" type="button" ng-click="sendAdoptionForm()">Submit</button>
         </div>
       </form>
   </div>
+</br>
+
+  <!-- <div ng-show="isAdmin" class="sent-forms">
+    <table class="table table-bordered">
+      <tr>
+        <th>Adopter Name</th>
+        <th>Desired Animal(s)</th>
+      </tr>
+      <tr ng-repeat="sentForm in sentForms">
+        <td>{{ composeForm.adopterName }}</td>
+        <td>{{ composeForm.selectedAnimal }}</td>
+      </tr>
+    </table>
+  </div> -->
 
 
 </div>
