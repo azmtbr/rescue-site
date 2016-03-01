@@ -1,14 +1,11 @@
 (function() {
-  function listingController($scope, $resource, Animals ) {
-    return $resource('api/rescues/:id/animals', { id: '@id' },
-      {
-        'index': { method: 'GET', isArray: true}
-      }
-    );
+  function listingController($scope, Fetch, Animals ) {
+    $scope.animals = Fetch.index();
+
   }
 
 
   angular
 		.module('rescueSite')
-		.controller('listingController', ['$scope', 'resource', 'Animals', listingController]);
+		.controller('listingController', ['$scope', 'Fetch', 'Animals', listingController]);
 })();

@@ -33,6 +33,6 @@
 	}
 
 	angular
-		.module('rescueSite', ['ui.router', 'ui.bootstrap'])
+		.module('rescueSite', ['ui.router', 'ui.bootstrap', 'ngResourcs'])
 		.config(config);
 })();
