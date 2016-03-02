@@ -33,6 +33,18 @@
 				url: '/adoption-form',
 				controller: 'adoptionFormController as adoptionForm',
 				templateUrl: '/templates/adoption-form.html'
+			})
+
+			.state('contact', {
+				url: '/contact',
+				controller: 'contactController as contact',
+				templateUrl: '/templates/contact.html'
+			})
+
+			.state('contact-form', {
+				url: '/contact-form',
+				controller: 'contactFormController as contactForm',
+				templateUrl: '/templates/contact-form.html'
 			});
 	}
 
