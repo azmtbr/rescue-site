@@ -1,5 +1,8 @@
 (function () {
-	function config($stateProvider, $locationProvider) {
+	function config($stateProvider, $locationProvider, RestangularProvider) {
+
+		RestangularProvider.setBaseUrl('http://127.0.0.1:4000/api');
+
 		$locationProvider
 			.html5Mode({
 				enabled: true,
@@ -19,6 +22,7 @@
 				templateUrl: '/templates/listing.html'
 			})
 
+
 			.state('profile', {
 				url: '/animals/:name',
 				controller: 'profileController as profile',
@@ -33,6 +37,6 @@
 	}
 
 	angular
-		.module('rescueSite', ['ui.router', 'ui.bootstrap', 'ngResourcs'])
-		.config(config);
+		.module('rescueSite', ['ui.router', 'ui.bootstrap', 'restangular'])
+		.config(config)
 })();

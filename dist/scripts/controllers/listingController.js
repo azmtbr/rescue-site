@@ -1,11 +1,12 @@
 (function() {
-  function listingController($scope, Fetch, Animals ) {
-    $scope.animals = Fetch.index();
+  function listingController($scope, Restangular) {
+
+    $scope.animals = Restangular.all('rescues/1/animals').getList().$object;
 
   }
 
 
   angular
 		.module('rescueSite')
-		.controller('listingController', ['$scope', 'Fetch', 'Animals', listingController]);
+		.controller('listingController', ['$scope', 'Restangular', listingController]);
 })();
