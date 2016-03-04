@@ -24,7 +24,7 @@
 
 
 			.state('profile', {
-				url: '/animals/:name',
+				url: '/animals/:id',
 				controller: 'profileController as profile',
 				templateUrl: '/templates/profile.html'
 			})
