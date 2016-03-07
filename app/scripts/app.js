@@ -1,7 +1,7 @@
 (function () {
 	function config($stateProvider, $locationProvider, RestangularProvider) {
 
-		RestangularProvider.setBaseUrl('http://127.0.0.1:4000/api');
+		RestangularProvider.setBaseUrl('http://127.0.0.1:4000/api/');
 
 		$locationProvider
 			.html5Mode({
@@ -24,7 +24,7 @@
 
 
 			.state('profile', {
-				url: '/animals/:id',
+				url: '/animals/:slugged',
 				controller: 'profileController as profile',
 				templateUrl: '/templates/profile.html'
 			})
