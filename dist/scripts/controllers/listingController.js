@@ -1,15 +1,9 @@
 (function() {
   function listingController($scope, Restangular, $stateParams) {
 
-    // $scope.animals = Restangular.one('rescues/', $stateParams['rescue_id']).getList('animals').$object;
-
-    Restangular.one('rescues').getList().then(function(rescues) {
-      $scope.rescue = rescues[0];
+    Restangular.all('animals').getList().then(function(animals) {
+      $scope.animals = animals;
     })
-
-
-    $scope.animals = $scope.rescue.getList('animals').$object;
-    debugger
   }
 
 

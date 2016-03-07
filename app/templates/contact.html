@@ -3,7 +3,27 @@
 
   <p>Information about contacting us goes here.</p>
 
-  <a href="/contact-form">
-    <button type="button" class="contact-form-open btn btn-default">Contact Us</button>
-  </a>
+  <button type="button" ng-click="toggleContactForm()" class="contact-form-open btn btn-default">Contact Us</button>
+
+  <div ng-show="contactFormOpen" class="container well">
+    <form ng-submit="sendContactForm()">
+      <fieldset class="form-group">
+        <label>Message</label>
+        <textarea ng-model="contact.message" class="form-control contact-message" placeholder="Go ahead, let it all out"></textarea>
+      </fieldset>
+      <fieldset class="form-group">
+        <label>Name</label>
+        <input type="text" ng-model="contact.name" class="form-control contact-name" placeholder="Enter your name">
+      </fieldset>
+      <fieldset class="form-group">
+        <label>Email</label>
+        <input type="email" ng-model="contact.email" class="form-control contact-email" placeholder="Enter your email">
+      </fieldset>
+      <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+  </div>
+
+  <div class="alert alert-success message-sent-alert" role="alert" ng-show="messageSent">
+    <h5>Your message was sent. We will be in touch shortly.</h5>
+  </div>
 </div>

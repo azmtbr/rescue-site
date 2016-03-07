@@ -1,9 +1,9 @@
 (function() {
   function profileController($scope, Restangular, $stateParams) {
 
-    $scope.animal = Restangular.one('rescues/1/animals/', $stateParams['slugged']).get().$object;
-
-
+    Restangular.one('animals', $stateParams['slug']).get().then(function(animal) {
+      $scope.animal = animal;
+    })
   }
 
 

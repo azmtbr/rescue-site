@@ -1,7 +1,7 @@
 (function () {
 	function config($stateProvider, $locationProvider, RestangularProvider) {
 
-		RestangularProvider.setBaseUrl('http://127.0.0.1:4000/api/');
+		RestangularProvider.setBaseUrl('http://127.0.0.1:4000/api/rescues/1');
 
 		$locationProvider
 			.html5Mode({
@@ -24,7 +24,7 @@
 
 
 			.state('profile', {
-				url: '/animals/:slugged',
+				url: '/animals/:slug',
 				controller: 'profileController as profile',
 				templateUrl: '/templates/profile.html'
 			})
@@ -40,12 +40,6 @@
 				controller: 'contactController as contact',
 				templateUrl: '/templates/contact.html'
 			})
-
-			.state('contact-form', {
-				url: '/contact-form',
-				controller: 'contactFormController as contactForm',
-				templateUrl: '/templates/contact-form.html'
-			});
 	}
 
 	angular
