@@ -22,7 +22,6 @@
 				templateUrl: '/templates/listing.html'
 			})
 
-
 			.state('profile', {
 				url: '/animals/:slug',
 				controller: 'profileController as profile',
@@ -35,11 +34,17 @@
 				templateUrl: '/templates/adoption-form.html'
 			})
 
+			.state('adoption-show', {
+				url: '/adoption-forms',
+				controller: 'adoptionShowController as adoptionShow',
+				templateUrl: '/templates/adoption-show.html'
+			})
+
 			.state('contact', {
 				url: '/contact',
 				controller: 'contactController as contact',
 				templateUrl: '/templates/contact.html'
-			})
+			});
 	}
 
 	angular

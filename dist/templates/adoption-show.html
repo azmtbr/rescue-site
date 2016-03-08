@@ -1,0 +1,30 @@
+
+<div class="container">
+  <div class="Jumbotron">
+    <h1>Completed Adoption Forms</h1>
+    <ul ng-repeat="adoption in adoptions">
+      <li ng-click="openForm()">View <a>{{adoption.desired_animal}}</a></li>
+    </ul>
+  </div>
+
+
+
+
+    <h1>Completed form</h1>
+
+    <ul ng-show="selectedForm" ng-repeat="adoption in adoptions">
+      <li>Adopter Name: {{ adoption.name }}</li>
+      <li>Adopter Email: {{ adoption.email }} </li>
+      <li>Desired Animal: {{ adoption.desired_animal }}</li>
+      <li>Street Address: {{ adoption.street_address }}</li>
+      <li>Mailing Address: {{ adoption.mailing_address }}</li>
+      <li>City: {{ adoption.city }}</li>
+      <li>State: {{ adoption.state }}</li>
+      <li>Postal Code: {{ adoption.postal_code}}</li>
+      <li>Home Phone: {{ adoption.home_phone }}</li>
+      <li>Cell Phone: {{ adoption.cell_phone }}</li>
+      <li>Work Phone: {{ adoption.work_phone }}</li>
+      <li>Over 18?: {{ adoption.age }}</li>
+
+    </ul>
+</div>
