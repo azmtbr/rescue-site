@@ -29,6 +29,18 @@ module.exports = function(grunt) {
         },
 
         copy: {
+            options: {
+              noProcess: ['**/*.{png,gif,jpg,ico,psd}'],
+              process: function(content, srcpath){
+                if (!srcpath.match(/\.js$/)) {return content;}
+
+                if (process.env.RESCUE_ID === undefined || process.env.RESCUE_ID === "") {
+                  grunt.log.error("RESCUE_ID was not specified!")
+                  throw new Exception("RESCUE_ID not specified!");
+                }
+                return content.replace(/\$RESCUE_ID/g, process.env.RESCUE_ID);
+              }
+            },
             dist: {
                 files: [{
                     expand: true,
