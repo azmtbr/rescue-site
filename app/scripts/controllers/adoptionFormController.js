@@ -12,7 +12,7 @@
                          city: "", state: "", postal_code: "", home_phone: "", cell_phone: "",
                          work_phone: "", desired_animal: ""};
     }
-
+}
 
 
 
