@@ -1,6 +1,16 @@
-<div class="container">
-  <h1>Animal Listing</h1>
-  <ul ng-repeat="animal in animals">
-    <li><a ui-sref="profile({slug: animal.slug})">View {{animal.name}}</a></li>
-  </ul>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <img src="/assets/images/fkr-logo.jpg" />
+      </a>
+      <h3 class="navbar-text">Available Animals</h3>
+    </div>
+  </div>
+</nav>
+
+<div class="list-group">
+  <div ng-repeat="animal in animals">
+    <a href="#" class="list-group-item" ui-sref="profile({slug: animal.slug})">View {{animal.name}}</a>
+  </div>
 </div>

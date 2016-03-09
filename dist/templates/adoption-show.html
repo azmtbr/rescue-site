@@ -1,30 +1,73 @@
-
-<div class="container">
-  <div class="Jumbotron">
-    <h1>Completed Adoption Forms</h1>
-    <ul ng-repeat="adoption in adoptions">
-      <li ng-click="openForm()">View <a>{{adoption.desired_animal}}</a></li>
-    </ul>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <img src="/assets/images/fkr-logo.jpg" />
+      </a>
+      <h3 class="navbar-text">Submitted Forms</h3>
+    </div>
   </div>
+</nav>
 
-
-
-
-    <h1>Completed form</h1>
-
-    <ul ng-show="selectedForm" ng-repeat="adoption in adoptions">
-      <li>Adopter Name: {{ adoption.name }}</li>
-      <li>Adopter Email: {{ adoption.email }} </li>
-      <li>Desired Animal: {{ adoption.desired_animal }}</li>
-      <li>Street Address: {{ adoption.street_address }}</li>
-      <li>Mailing Address: {{ adoption.mailing_address }}</li>
-      <li>City: {{ adoption.city }}</li>
-      <li>State: {{ adoption.state }}</li>
-      <li>Postal Code: {{ adoption.postal_code}}</li>
-      <li>Home Phone: {{ adoption.home_phone }}</li>
-      <li>Cell Phone: {{ adoption.cell_phone }}</li>
-      <li>Work Phone: {{ adoption.work_phone }}</li>
-      <li>Over 18?: {{ adoption.age }}</li>
-
-    </ul>
+<div class="panel panel-default" ng-repeat="adoption in adoptions">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">View {{adoption.desired_animal}}'s Form</button>
+      <span class="pull-right">received: {{adoption.created_at | date:'medium'}}</span>
+    </h4>
+  </div>
+  <div uib-collapse="isCollapsed">
+    <div class="panel-body">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <h4 class="list-group-item-heading">Adopter Name</h4>
+          <p class="list-group-item-text">{{ adoption.name }}</p>
+        </li>
+        <li class="list-group-item">
+          <h4 class="list-group-item-heading">Adopter Email</h4>
+          <p class="list-group-item-text">{{ adoption.email }}</p>
+        </li>
+        <li class="list-group-item">
+          <h4 class="list-group-item-heading">Over 18</h4>
+          <p class="list-group-item-text">{{ adoption.age }}</p>
+        </li>
+        <li class="list-group-item">
+          <h4 class="list-group-item-heading">Desired Animal</h4>
+          <p class="list-group-item-text">{{ adoption.desired_animal }}</p>
+        </li>
+        <li class="list-group-item">
+          <h4 class="list-group-item-heading">Street Address</h4>
+          <p class="list-group-item-text">{{ adoption.street_address }}</p>
+        </li>
+        <li class="list-group-item">
+          <h4 class="list-group-item-heading">Mailing Address</h4>
+          <p class="list-group-item-text">{{ adoption.mailing_address }}</p>
+        </li>
+        <li class="list-group-item">
+          <h4 class="list-group-item-heading">City</h4>
+          <p class="list-group-item-text">{{ adoption.city }}</p>
+        </li>
+        <li class="list-group-item">
+          <h4 class="list-group-item-heading">State</h4>
+          <p class="list-group-item-text">{{ adoption.state }}</p>
+        </li>
+        <li class="list-group-item">
+          <h4 class="list-group-item-heading">Postal Code</h4>
+          <p class="list-group-item-text">{{ adoption.postal_code }}</p>
+        </li>
+        <li class="list-group-item">
+          <h4 class="list-group-item-heading">Home Phone</h4>
+          <p class="list-group-item-text">{{ adoption.home_phone }}</p>
+        </li>
+        <li class="list-group-item">
+          <h4 class="list-group-item-heading">Cell Phone</h4>
+          <p class="list-group-item-text">{{ adoption.cell_phone }}</p>
+        </li>
+        <li class="list-group-item">
+          <h4 class="list-group-item-heading">Work Phone</h4>
+          <p class="list-group-item-text">{{ adoption.work_phone }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

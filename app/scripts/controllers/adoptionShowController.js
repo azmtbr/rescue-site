@@ -4,15 +4,17 @@
     // Restangular.one('adoptions', $stateParams['id']).get().then(function(adoption) {
     //   $scope.adoption = adoption;
     // })
-    $scope.selectedForm = false;
+    // $scope.selectedForm = false;
+    //
+    // $scope.openForm = function() {
+    //   $scope.selectedForm = true;
+    // }
 
-    $scope.openForm = function() {
-      $scope.selectedForm = true;
-    }
+    $scope.isCollapsed = true;
 
     $scope.adoptions = Restangular.all('adoptions').getList().$object;
 
-    // $scope.adoption = Restangular.one('adoptions', 2).get().$object;
+    $scope.adoption = Restangular.one('adoptions', 2).get().$object;
 
   }
 

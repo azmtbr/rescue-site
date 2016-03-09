@@ -1,7 +1,7 @@
 (function() {
   function landingController($scope) {
-    $scope.siteTitle = "Fearless Kitty Rescue";
-    $scope.welcomeText = "Welcome!";
+    $scope.siteTitle = "My Rescue Site";
+    $scope.welcomeText = "Welcome! Let's make My Rescue Site into Your Rescue Site";
   }
 
 
