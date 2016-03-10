@@ -2,9 +2,25 @@
   margin-top: 15px;
 }
 
-.navbar-brand>img {
-  height: 35px;
+h1 {
+  margin-bottom: 0;
+  margin-top: 0;
 }
+
+.page-content {
+  margin-top: 67px;
+}
+
+.panel-body {
+  border-bottom: 1px solid lightgrey;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.panel-body:last-child {
+  border-bottom: none;
+}
+
 
 
 
@@ -25,6 +41,15 @@
     margin-top: 38px;
   }
 
+  .form-received-text {
+    font-size: 11px;
+    margin-top: 10px;
+  }
+
+  .navbar-brand {
+    margin-top: 4px;
+  }
+
 }
 
 @media screen and (min-width: 768px) {
@@ -42,5 +67,9 @@
 
   .contact-items {
     position: relative;
+  }
+
+  .form-received-text {
+    margin-top: 7px;
   }
 }

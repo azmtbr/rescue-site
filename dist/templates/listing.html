@@ -1,16 +1,7 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">
-        <img src="/assets/images/fkr-logo.jpg" />
-      </a>
-      <h3 class="navbar-text">Available Animals</h3>
+<div class="container page-content">
+  <div class="list-group">
+    <div ng-repeat="animal in animals">
+      <a href="#" class="list-group-item" ui-sref="profile({slug: animal.slug})">View {{animal.name}}</a>
     </div>
-  </div>
-</nav>
-
-<div class="list-group">
-  <div ng-repeat="animal in animals">
-    <a href="#" class="list-group-item" ui-sref="profile({slug: animal.slug})">View {{animal.name}}</a>
   </div>
 </div>

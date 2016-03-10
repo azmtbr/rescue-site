@@ -1,5 +1,5 @@
 (function() {
-  function contactController($scope, Restangular) {
+  function contactController($scope, $location, $anchorScroll, Restangular) {
 
     $scope.contact = {name: "", email: "", message: ""};
     $scope.contactFormOpen = false;
@@ -15,13 +15,16 @@
     $scope.toggleContactForm = function() {
       $scope.messageSent = false
       $scope.contactFormOpen = $scope.contactFormOpen === false ? true: false;
+      if ($scope.contactFormOpen) {
+        $location.hash('contact-anchor');
+        $anchorScroll();
+      }
     }
-
   }
 
 
 
   angular
 		.module('rescueSite')
-		.controller('contactController', ['$scope', 'Restangular', contactController]);
+		.controller('contactController', ['$scope','$location', '$anchorScroll', 'Restangular', contactController]);
 })();

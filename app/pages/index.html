@@ -8,7 +8,47 @@
     <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
-
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle Navigation</span>
+            <span class="glyphicon glyphicon-menu-hamburger"></span>
+          </button>
+          <h1 class="navbar-brand">
+            <a href="/">Fearless Kitty Rescue</a>
+          </h1>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active">
+              <a data-toggle="collapse" data-target=".navbar-collapse" href="/">Home</a>
+            </li>
+            <li>
+              <a data-toggle="collapse" data-target=".navbar-collapse" href="/animals">Adopt</a>
+            </li>
+            <li>
+              <a data-toggle="collapse" data-target=".navbar-collapse" href="/contact">Contact</a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Support<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#">Donate</a></li>
+                <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#">Volunteer</a></li>
+                <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#">Foster</a></li>
+              </ul>
+            </li>
+            <li  class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a data-toggle="collapse" data-target=".navbar-collapse" href="/adoption-forms">Completed Adoption Forms</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <ui-view></ui-view>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/restangular/1.5.2/restangular.min.js"></script>
@@ -23,6 +63,5 @@
     <script src="/scripts/controllers/adoptionFormController.js"></script>
     <script src="/scripts/controllers/contactController.js"></script>
     <script src="/scripts/controllers/adoptionShowController.js"></script>
-    <ui-view></ui-view>
 </body>
 </html>
