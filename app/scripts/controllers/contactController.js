@@ -8,17 +8,23 @@
     $scope.sendContactForm = function(contact) {
       Restangular.one('').post('contacts', $scope.contact);
       $scope.contact = {name: "", email: "", message: ""};
-      $scope.contactFormOpen = false;
+      $scope.toggleContactForm();
       $scope.messageSent = true;
     }
 
     $scope.toggleContactForm = function() {
-      $scope.messageSent = false
       $scope.contactFormOpen = $scope.contactFormOpen === false ? true: false;
       if ($scope.contactFormOpen) {
-        $location.hash('contact-anchor');
-        $anchorScroll();
+        $scope.messageSent = false;
+
+        $(".contact-form").fadeIn(function(){
+          var sendButtonPosition = $('form#contact-form button').position();
+            $(window).scrollTop(sendButtonPosition.top);
+        });
+      } else {
+        $(".contact-form").fadeOut();
       }
+
     }
   }
 

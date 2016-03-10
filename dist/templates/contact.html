@@ -10,8 +10,8 @@
       <button type="button" ng-click="toggleContactForm()" class="contact-form-open btn btn-default">Contact Us</button>
     </div>
 
-    <div ng-show="contactFormOpen" class="contact-form well">
-      <form ng-submit="sendContactForm()">
+    <div style="display:none;" class="contact-form well">
+      <form id="contact-form" ng-submit="sendContactForm()">
         <fieldset class="form-group">
           <label>Message</label>
           <textarea ng-model="contact.message" class="form-control contact-message" placeholder="Go ahead, let it all out"></textarea>
@@ -26,7 +26,6 @@
         </fieldset>
         <button type="submit" class="btn btn-primary">Send</button>
       </form>
-      <div id="contact-anchor"></div>
     </div>
 
     <div class="alert alert-success message-sent-alert" role="alert" ng-show="messageSent">
