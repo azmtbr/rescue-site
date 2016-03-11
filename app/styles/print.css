@@ -1,0 +1,17 @@
+.panel-info {
+  font-family: 12pt "times New Roman", TimesNR, Times, serif;
+}
+
+.panel-image {
+  display: none;
+}
+
+.panel-info {
+  display: inline-block;
+  float: left;
+  margin: 0 10px;
+}
+
+.panel-info {
+  padding-top: 5px;
+}

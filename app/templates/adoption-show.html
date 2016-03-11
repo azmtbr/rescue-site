@@ -1,13 +1,25 @@
 <div class="container page-content">
-  <div class="panel panel-default" ng-repeat="adoption in adoptions">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <span class="view-form-button">
-          <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">View {{adoption.desired_animal}}'s Form</button>
-        </span>
-        <span class="pull-right form-received-text">received: {{adoption.created_at | date:'medium'}}</span>
-      </h4>
-    </div>
+  <div id="printSection" class="panel panel-default" ng-repeat="adoption in adoptions | orderBy: '-created_at'">
+
+      <div class="panel-heading">
+        <div class="panel-title">{{adoption.desired_animal}}'s Adoption Form
+          <span class="pull-right form-received-text"><small>Received:</small> {{adoption.created_at | date:'MMMM d, y'}}</span>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="row panel-interior">
+          <div class="panel-info col-sm-8">
+            <p>Adopter: {{adoption.name}}</p>
+            <p>Animal: {{adoption.desired_animal}}</p>
+            <p>Email: {{adoption.email}}</p>
+            <p>Phone: {{adoption.cell_phone}}</p>
+            <div class="view-form-button">
+              <button type="button" class="btn btn-default view-form-button-text" ng-click="isCollapsed = !isCollapsed">View Form <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></button>
+            </div>
+          </div>
+          <img class="panel-image col-sm-4" src="/assets/images/fkr-logo.jpg" />
+        </div>
+      </div>
     <div uib-collapse="isCollapsed">
       <div class="panel-body">
         <ul class="list-group">
@@ -60,6 +72,8 @@
             <p class="list-group-item-text">{{ adoption.work_phone }}</p>
           </li>
         </ul>
+        <button ng-click="printTo(printSection)" class="btn btn-default print-button">Print Form</button>
+
       </div>
     </div>
   </div>
