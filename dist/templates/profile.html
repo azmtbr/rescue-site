@@ -1,12 +1,4 @@
 <div class="container page-content">
-  <!-- <h3 class="navbar-text">{{ animal.name }}'s Profile</h3> -->
-
-  <!-- <ul class="list-group">
-    <li class="list-group-item">Breed: {{ animal.breed }} </li>
-    <li class="list-group-item">Sex: {{ animal.sex }}</li>
-    <li class="list-group-item">DOB: {{ animal.dob }}</li>
-  </ul> -->
-
   <div class="panel panel-default">
     <div class="panel-heading">{{ animal.name }}'s Profile</div>
     <div class="panel-body">
@@ -20,7 +12,5 @@
     </div>
   </div>
 
-  <a href="/adoption-form">
-    <button type="button" class="adoption-form-open btn btn-default">Adopt {{ animal.name }}</button>
-  </a>
+  <button type="button" ng-click="openAdoptionForm()" class="adoption-form-open btn btn-default">Adopt {{ animal.name }}</button>
 </div>
