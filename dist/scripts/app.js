@@ -28,16 +28,22 @@
 				templateUrl: '/templates/profile.html'
 			})
 
-			.state('adoption-form', {
-				url: '/adoption-form',
+			.state('adoption', {
+				url: '/animals/:slug/adoption',
 				controller: 'adoptionFormController as adoptionForm',
-				templateUrl: '/templates/adoption-form.html'
+				templateUrl: '/templates/adoption.html'
 			})
 
 			.state('adoption-show', {
 				url: '/adoption-forms',
 				controller: 'adoptionShowController as adoptionShow',
 				templateUrl: '/templates/adoption-show.html'
+			})
+
+			.state('adoption-print', {
+				url: '/adoption-forms/:id',
+				controller: 'adoptionPrintController as adoptionPrint',
+				templateUrl: '/templates/adoption-print.html'
 			})
 
 			.state('contact', {

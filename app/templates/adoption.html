@@ -1,5 +1,23 @@
 <div class="container page-content">
-  <form name="adoptionForm" role="form" ng-submit="sendAdoptionForm()">
+  <div class="panel-heading">
+    <div class="panel-title">Adoption Form for {{animal.name}}</div>
+  </div>
+  <div class="panel-body">
+    <div class="row panel-interior">
+      <div class="panel-info col-sm-8">
+        <p>Breed: {{animal.breed}}</p>
+        <p>Sex: {{animal.sex}}</p>
+        <p>Age: {{animal.dob}}</p>
+      </div>
+      <img class="panel-image col-sm-4" src="/assets/images/fkr-logo.jpg" height="154" width="auto" />
+      <div class="form-sent-confirmation col-sm-8" ng-show="adoptionFormSent">
+        <div class="alert alert-success" role="alert">
+          <strong>Adoption Form Sent!</strong><a href="#" ui-sref="profile({slug: animal.slug})"> Return to {{animal.name}}'s profile page</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form class="adoption-form" role="form" ng-submit="sendAdoptionForm()">
     <fieldset class="form-group">
       <label>Your Name</label>
       <input type="text" ng-model="adoption.name" class="form-control adopter-name" placeholder="Please enter your full name" required="adoption.name">
@@ -8,13 +26,18 @@
       <label>Email</label>
       <input type="email" ng-model="adoption.email" class="form-control adopter-email" placeholder="Enter your email" required="adoption.email">
     </fieldset>
+
     <fieldset class="form-group">
       <label>Desired Animal</label>
-      <input type="text" ng-model="adoption.desired_animal" class="form-control desired-animal" placeholder="Which animal(s) are you interested in?" required="adoption.desired_animal">
+      <input ng-model="animal.name" class="form-control desired-animal" disabled="disabled">
     </fieldset>
+
     <fieldset class="form-group">
       <label>Are you over 18?</label>
-      <input type="checkbox" ng-model="adoption.age" class="adopter-age" required="adoption.age">Check to confirm</input>
+      <select  ng-model="adoption.age" class="adopter-age" required="adoption.age">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
     </fieldset>
     <fieldset class="form-group">
       <label>Street Address</label>
@@ -48,6 +71,6 @@
       <label>Work Phone</label>
       <input type="text" ng-model="adoption.work_phone" class="form-control adopter-work-phone" placeholder="Enter your work #">
     </fieldset>
-    <button type="submit" class="btn btn-primary">Send</button>
+      <button type="submit" class="btn btn-primary">Send</button>
   </form>
 </div>

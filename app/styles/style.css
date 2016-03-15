@@ -39,6 +39,35 @@ h1 {
 
 .view-form-button {
   margin-bottom: 7px;
+  margin-top: 21px;
+}
+
+/*Print Preview*/
+.print-page-preview {
+  margin-top: 57px;
+}
+
+.print-header-logo {
+  max-height: 48px;
+  margin-top: -8px;
+  width:auto;
+  float: right;
+}
+
+.print-page-header {
+  margin-top: 19px;
+}
+
+.print-small-text {
+  font-size: 40%;
+}
+
+.print-page-content>li>h4 {
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+.print-page-content>li>p {
+  font-family: Verdana, Geneva, sans-serif;
 }
 
 

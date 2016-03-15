@@ -12,5 +12,5 @@
     </div>
   </div>
 
-  <button type="button" ng-click="openAdoptionForm()" class="adoption-form-open btn btn-default">Adopt {{ animal.name }}</button>
+  <a ui-sref="adoption({slug: animal.slug})" class="btn btn-default">Adopt {{animal.name}}</a>
 </div>

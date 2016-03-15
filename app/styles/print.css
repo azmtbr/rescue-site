@@ -1,21 +1,33 @@
-.panel-info {
-  font-family: 12pt "times New Roman", TimesNR, Times, serif;
-}
+@media print  {
+  .navbar {
+    display: none;
+  }
 
-.panel-image {
-  display: none;
-}
+  .print-button {
+    display: none;
+  }
 
-.panel-info {
-  display: inline-block;
-  float: left;
-  margin: 0 10px;
-}
+  .print-header-logo {
+    max-height: 48px;
+    margin-top: -8px;
+    width:auto;
+    float: right;
+  }
 
-.panel-info {
-  padding-top: 5px;
-}
+  .print-page-header {
+    margin-top: 19px;
+  }
 
-p {
-  font-family: 36pt "times New Roman", TimesNR, Times, serif;
+  .print-small-text {
+    font-size: 40%;
+    margin-left: 30%;
+  }
+
+  .print-page-content>li>h4 {
+    font-family: Verdana, Geneva, sans-serif;
+  }
+
+  .print-page-content>li>p {
+    font-family: Verdana, Geneva, sans-serif;
+  }
 }

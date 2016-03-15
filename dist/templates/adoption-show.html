@@ -10,17 +10,18 @@
         <div class="row panel-interior">
           <div class="panel-info col-sm-8">
             <p>Adopter: {{adoption.name}}</p>
-            <p>Animal: {{adoption.desired_animal}}</p>
             <p>Email: {{adoption.email}}</p>
+            <p>Phone: {{adoption.cell_phone}}</p>
             <div class="view-form-button">
               <button type="button" class="btn btn-default view-form-button-text" ng-click="isCollapsed = !isCollapsed">View Form <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></button>
+              <button ng-click="printTo(adoption)" ng-show="!isCollapsed" class="btn btn-default print-button"><span class="glyphicon glyphicon-print" aria-label="Print"></span></button>
             </div>
           </div>
           <img class="panel-image col-sm-4" src="/assets/images/fkr-logo.jpg" height="154" width="auto" />
         </div>
       </div>
     <div uib-collapse="isCollapsed">
-      <div id="printSection" class="panel-body">
+      <div class="panel-body">
         <ul class="list-group">
           <li class="list-group-item">
             <h4 class="list-group-item-heading">Adopter Name</h4>
@@ -33,10 +34,6 @@
           <li class="list-group-item">
             <h4 class="list-group-item-heading">Over 18</h4>
             <p class="list-group-item-text">{{ adoption.age }}</p>
-          </li>
-          <li class="list-group-item">
-            <h4 class="list-group-item-heading">Desired Animal</h4>
-            <p class="list-group-item-text">{{ adoption.desired_animal }}</p>
           </li>
           <li class="list-group-item">
             <h4 class="list-group-item-heading">Street Address</h4>
@@ -71,11 +68,6 @@
             <p class="list-group-item-text">{{ adoption.work_phone }}</p>
           </li>
         </ul>
-        <button ng-click="printTo(printSection)" class="btn btn-default print-button"
-                data-toggle="tooltip" data-placement="top" title="Print">
-          <span class="glyphicon glyphicon-print" aria-label="Print"></span>
-        </button>
-        <!-- <button ng-click="download(printSection)" class="btn btn-default download-button">Download Form</button> -->
       </div>
     </div>
   </div>
