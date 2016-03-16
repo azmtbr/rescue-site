@@ -2,14 +2,14 @@
   <div class="panel panel-default" ng-repeat="adoption in adoptions | orderBy: '-created_at'">
 
       <div class="panel-heading">
-        <div class="panel-title">{{adoption.desired_animal}}'s Adoption Form
+        <div class="panel-title">{{animal.name}}'s Adoption Form
           <span class="pull-right form-received-text"><small>Received:</small> {{adoption.created_at | date:'MMMM d, y'}}</span>
         </div>
       </div>
       <div class="panel-body">
         <div class="row panel-interior">
           <div class="panel-info col-sm-8">
-            <p>Adopter: {{adoption.name}}</p>
+            <p>Adopter: {{adoption.first_name}} {{adoption.last_name}}</p>
             <p>Email: {{adoption.email}}</p>
             <p>Phone: {{adoption.cell_phone}}</p>
             <div class="view-form-button">
@@ -25,7 +25,7 @@
         <ul class="list-group">
           <li class="list-group-item">
             <h4 class="list-group-item-heading">Adopter Name</h4>
-            <p class="list-group-item-text">{{ adoption.name }}</p>
+            <p class="list-group-item-text">{{adoption.first_name}} {{adoption.last_name}}</p>
           </li>
           <li class="list-group-item">
             <h4 class="list-group-item-heading">Adopter Email</h4>
@@ -72,3 +72,4 @@
     </div>
   </div>
 </div>
+{{animal.name}}

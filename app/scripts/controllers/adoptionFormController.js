@@ -10,16 +10,16 @@
                              link: "localhost:3000/adoption-forms"};
 
     $scope.clearForm = function() {
-      $scope.adoption = {name: "", email: "", age: false, street_address: "", mailing_address: "",
+      $scope.adoption = {first_name: "", last_name: "", email: "", age: false, street_address: "", mailing_address: "",
                        city: "", state: "", postal_code: "", home_phone: "", cell_phone: "",
-                       work_phone: "", desired_animal: ""};
+                       work_phone: ""};
     }
 
 
 
     $scope.sendAdoptionForm = function(contact, form) {
       Restangular.one('').post('adoptionnotices', $scope.adoptionNotice);
-      Restangular.one('').post('adoptions', $scope.adoption);
+      Restangular.one('').post('/animals/animal_id/adoptions', $scope.adoption);
       $scope.clearForm();
       $scope.adoptionFormSent = true;
       var successAlert = $('.page-content').position();
@@ -28,7 +28,7 @@
         //   scrollTop: $(successAlert)
         // }, 1500)
     }
-}
+  }
 
 
 
