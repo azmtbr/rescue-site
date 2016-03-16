@@ -2,7 +2,7 @@
   <div class="panel panel-default" ng-repeat="adoption in adoptions | orderBy: '-created_at'">
 
       <div class="panel-heading">
-        <div class="panel-title">{{animal.name}}'s Adoption Form
+        <div class="panel-title">{{adoption.animal.name}}'s Adoption Form
           <span class="pull-right form-received-text"><small>Received:</small> {{adoption.created_at | date:'MMMM d, y'}}</span>
         </div>
       </div>
@@ -72,4 +72,3 @@
     </div>
   </div>
 </div>
-{{animal.name}}

@@ -2,12 +2,15 @@
   function adoptionFormController($scope, $location, $stateParams, Restangular) {
 
     Restangular.one('animals', $stateParams['slug']).get().then(function(animal) {
-      return $scope.animal = animal;
+      $scope.animal = animal;
+      $scope.adoption = {animal_id: animal.id};
     })
 
     $scope.adoptionFormSent = false;
     $scope.adoptionNotice = {message: "You have a new adoption form to review. Click the link below to view the form in the admin section of your website",
                              link: "localhost:3000/adoption-forms"};
+
+    // $scope.adoption = {animal_id: animal.id};
 
     $scope.clearForm = function() {
       $scope.adoption = {first_name: "", last_name: "", email: "", age: false, street_address: "", mailing_address: "",
@@ -19,7 +22,7 @@
 
     $scope.sendAdoptionForm = function(contact, form) {
       Restangular.one('').post('adoptionnotices', $scope.adoptionNotice);
-      Restangular.one('').post('/animals/animal_id/adoptions', $scope.adoption);
+      Restangular.one('').post('adoptions', $scope.adoption);
       $scope.clearForm();
       $scope.adoptionFormSent = true;
       var successAlert = $('.page-content').position();
