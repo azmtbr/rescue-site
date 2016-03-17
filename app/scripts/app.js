@@ -54,6 +54,6 @@
 	}
 
 	angular
-		.module('rescueSite', ['ui.router', 'ui.bootstrap', 'restangular'])
+		.module('rescueSite', ['ui.router', 'ui.bootstrap', 'restangular', 'angularFileUpload'])
 		.config(config)
 })();

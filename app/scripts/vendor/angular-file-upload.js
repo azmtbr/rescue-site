@@ -1,0 +1,1 @@
+../../../node_modules/angular-file-upload/dist/angular-file-upload.js
