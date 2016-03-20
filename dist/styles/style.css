@@ -11,6 +11,7 @@ h1 {
   margin-top: 67px;
 }
 
+/*PROFILE PANEL*/
 .panel-body {
   border-bottom: 1px solid lightgrey;
   margin-left: 10px;
@@ -32,9 +33,14 @@ h1 {
 }
 
 .panel-image {
-  max-height: 154px;
+  max-height: 150px;
   width: auto;
   border: 1px solid lightgrey;
+}
+
+.profile-image {
+  max-height: 150px;
+  width: auto;
 }
 
 .view-form-button {
@@ -70,6 +76,17 @@ h1 {
   font-family: Verdana, Geneva, sans-serif;
 }
 
+/*FLEXBOX FOR LISTING PAGE*/
+.animal-listing-page {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.animal-listing-card {
+  order: 1;
+  flex-grow: 1;
+}
 
 
 

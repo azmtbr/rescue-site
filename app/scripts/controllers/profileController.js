@@ -9,6 +9,8 @@
 
     $scope.isAdmin = true;
 
+    $scope.gallery = Restangular.one('galleries', 1).get().$object;
+
 
 
   }
