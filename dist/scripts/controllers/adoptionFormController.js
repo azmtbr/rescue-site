@@ -10,7 +10,6 @@
     $scope.adoptionNotice = {message: "You have a new adoption form to review. Click the link below to view the form in the admin section of your website",
                              link: "localhost:3000/adoption-forms"};
 
-    // $scope.adoption = {animal_id: animal.id};
 
     $scope.clearForm = function() {
       $scope.adoption = {first_name: "", last_name: "", email: "", age: false, street_address: "", mailing_address: "",
@@ -27,9 +26,6 @@
       $scope.adoptionFormSent = true;
       var successAlert = $('.page-content').position();
         $(window).scrollTop(successAlert.top);
-        // $(window).animate({
-        //   scrollTop: $(successAlert)
-        // }, 1500)
     }
   }
 

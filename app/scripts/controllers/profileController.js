@@ -5,18 +5,15 @@
       // $scope.uploader = new FileUploader({url: "http://127.0.0.1:4000/api/rescues/$RESCUE_ID/animals/" + animal.slug,
       //                                     method: 'PATCH'});
       $scope.animal = animal;
-    })
+
+      Restangular.one('galleries', animal.gallery_id).get().then(function(gallery) {
+        $scope.gallery = gallery;
+        $scope.uploader = new FileUploader({url: "http://127.0.0.1:4000/api/rescues/$RESCUE_ID/galleries/" + animal.gallery_id + "/photos",
+                                            method: 'POST'});
+      })
+    });
 
     $scope.isAdmin = true;
-
-    Restangular.one('galleries', 1).get().then(function(gallery) {
-      return $scope.gallery = gallery;
-    })
-
-    Restangular.one('photos', 1).get().then(function(photos) {
-      $scope.uploader = new FileUploader({url: "http://127.0.0.1:4000/api/rescues/$RESCUE_ID/animals/" + photos.gallery_id,
-                                          method: 'PATCH'});
-    })
 
 
 
