@@ -1,6 +1,6 @@
 <div class="container print-page-preview" onload="window.print()">
   <div class="page-header print-page-header">
-    <h2>{{adoption.desired_animal}} <small class="print-small-text">Form recieved: {{adoption.created_at | date:'MMMM d, y'}}</small><img class="print-header-logo" src="/assets/images/fkr-logo.jpg" height="75" width="auto" /></h2>
+    <h2>{{adoption.animal.name}} <small class="print-small-text">Form recieved: {{adoption.created_at | date:'MMMM d, y'}}</small><img class="print-header-logo" src="/assets/images/fkr-logo.jpg" height="75" width="auto" /></h2>
   </div>
 
   <div class="print-button">
