@@ -38,8 +38,13 @@ h1 {
   border: 1px solid lightgrey;
 }
 
-.profile-image {
+.profile-thumbnail {
   max-height: 150px;
+  width: auto;
+}
+
+.gallery-image {
+  max-height: 200px;
   width: auto;
 }
 

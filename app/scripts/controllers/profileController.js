@@ -8,7 +8,8 @@
 
       Restangular.one('galleries', animal.gallery_id).get().then(function(gallery) {
         $scope.gallery = gallery;
-        $scope.uploader = new FileUploader({url: "http://127.0.0.1:4000/api/rescues/$RESCUE_ID/galleries/" + animal.gallery_id + "/photos", method: 'POST', alias: "photo[gallery_image]"});
+        $scope.uploader = new FileUploader({url: "http://127.0.0.1:4000/api/rescues/$RESCUE_ID/galleries/" + animal.gallery_id + "/photos",
+                                            method: 'POST'});
       })
     });
 
