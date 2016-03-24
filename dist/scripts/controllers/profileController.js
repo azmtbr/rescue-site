@@ -9,8 +9,17 @@
       Restangular.one('galleries', animal.gallery_id).get().then(function(gallery) {
         $scope.gallery = gallery;
         $scope.uploader = new FileUploader({url: "http://127.0.0.1:4000/api/rescues/1/galleries/" + animal.gallery_id + "/photos",
-                                            method: 'POST'});
+                                            method: 'POST',
+                                            alias: "photo[gallery_image]"});
       })
+
+      Restangular.one('galleries', animal.gallery_id).all('photos').getList().then(function(photos) {
+        $scope.photos = photos;
+      })
+
+      // $scope.deletePic = function(photo) {
+      //   Restangular.one('photos', 1).remove();
+      // }
     });
 
     $scope.isAdmin = true;

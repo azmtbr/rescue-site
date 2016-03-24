@@ -19,12 +19,13 @@
   </div>
 
   <p>Gallery Photos</p>
-  <div class="animal-gallery-card col-sm-6 col-md-4" ng-repeat="photo in gallery.photos">
+  <div class="animal-gallery-card col-sm-6 col-md-4" ng-repeat="photo in photos">
     <div class="thumbnail">
       <a ng-href="http://localhost:4000/{{photo.large_url}}" >
         <img class="gallery-image" ng-src="http://localhost:4000/{{photo.medium_url}}" />
       </a>
     </div>
+    <button ng-show="isAdmin" class="gallery-image-delete" ng-click="deletePic(photo)"><i class="glyphicon glyphicon-remove"></i></button>
   </div>
 
 <!-- Profile Uploader -->
@@ -33,8 +34,6 @@
     <div class="file uploader">
       <input type="file" nv-file-select="" uploader="uploader" multiple="true"/><br/>
     </div>
-
-
       <table class="table">
          <thead>
            <tr>
