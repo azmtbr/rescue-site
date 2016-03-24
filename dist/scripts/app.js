@@ -2,6 +2,7 @@
 	function config($stateProvider, $locationProvider, RestangularProvider) {
 
 		RestangularProvider.setBaseUrl('http://127.0.0.1:4000/api/rescues/1');
+		
 
 		$locationProvider
 			.html5Mode({
