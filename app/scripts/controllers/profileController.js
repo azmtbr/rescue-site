@@ -17,9 +17,11 @@
         $scope.photos = photos;
       })
 
-      // $scope.deletePic = function(photo) {
-      //   Restangular.one('photos', 1).remove();
-      // }
+      $scope.deletePic = function(photo) {
+        Restangular.one('galleries', animal.gallery_id).one('photos', photo.id).remove().then(function(){
+          $scope.photos = _.without($scope.photos, photo);
+        });
+      }
     });
 
     $scope.isAdmin = true;
