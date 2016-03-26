@@ -1,9 +1,9 @@
 (function() {
-  function profileController($scope, $location, Restangular, FileUploader, $stateParams) {
+  function profileController($scope, $location, $state, Restangular, FileUploader, $stateParams) {
 
     Restangular.one('animals', $stateParams['slug']).get().then(function(animal) {
       $scope.profileUploader = new FileUploader({url: "http://127.0.0.1:4000/api/rescues/$RESCUE_ID/animals/" + animal.slug,
-                                          method: 'PATCH'});
+                                                 method: 'PATCH'});
       $scope.animal = animal;
 
       Restangular.one('galleries', animal.gallery_id).get().then(function(gallery) {
@@ -11,6 +11,12 @@
         $scope.galleryUploader = new FileUploader({url: "http://127.0.0.1:4000/api/rescues/$RESCUE_ID/galleries/" + animal.gallery_id + "/photos",
                                             method: 'POST',
                                             alias: "photo[gallery_image]"});
+        $scope.galleryUploader.onSuccessItem = function() {
+          console.log('we have something at least');
+          Restangular.one('galleries', animal.gallery_id).all('photos').getList().then(function(photos) {
+            $scope.photos = photos;
+          })
+          };
       })
 
       Restangular.one('galleries', animal.gallery_id).all('photos').getList().then(function(photos) {
@@ -33,5 +39,5 @@
 
   angular
 		.module('rescueSite')
-		.controller('profileController', ['$scope', '$location', 'Restangular', 'FileUploader', '$stateParams', profileController]);
+		.controller('profileController', ['$scope', '$location', '$state', 'Restangular', 'FileUploader', '$stateParams', profileController]);
 })();

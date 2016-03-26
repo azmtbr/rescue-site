@@ -1,5 +1,5 @@
 (function() {
-  function adoptionShowController($scope, $stateParams, Restangular) {
+  function adoptionShowController($scope, Restangular) {
 
     $scope.isCollapsed = true;
     $scope.adoptions = Restangular.all('adoptions').getList().$object;
@@ -15,5 +15,5 @@
 
   angular
 		.module('rescueSite')
-		.controller('adoptionShowController', ['$scope', '$stateParams', 'Restangular', adoptionShowController]);
+		.controller('adoptionShowController', ['$scope', 'Restangular', adoptionShowController]);
 })();
