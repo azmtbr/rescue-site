@@ -55,7 +55,7 @@
 				url: '/contact',
 				controller: 'contactController as contact',
 				templateUrl: '/templates/contact.html'
-			});
+			})
 
 			.state('admin', {
 				url: '/admin',
