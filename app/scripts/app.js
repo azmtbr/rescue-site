@@ -1,8 +1,12 @@
 (function () {
-	function config($stateProvider, $locationProvider, RestangularProvider) {
+	function config($stateProvider, $locationProvider, $authProvider, RestangularProvider) {
 
 		RestangularProvider.setBaseUrl('http://127.0.0.1:4000/api/rescues/$RESCUE_ID');
-		
+
+		$authProvider.configure({
+			apiUrl: 'http://127.0.0.1:4000/api/rescues/$RESCUE_ID'
+		});
+
 
 		$locationProvider
 			.html5Mode({
@@ -52,9 +56,15 @@
 				controller: 'contactController as contact',
 				templateUrl: '/templates/contact.html'
 			});
+
+			.state('admin', {
+				url: '/admin',
+				controller: 'adminController as admin',
+				templateUrl: '/templates/admin.html'
+			});
 	}
 
 	angular
-		.module('rescueSite', ['ui.router', 'ui.bootstrap', 'restangular', 'angularFileUpload'])
+		.module('rescueSite', ['ui.router', 'ui.bootstrap', 'restangular', 'angularFileUpload', 'ng-token-auth'])
 		.config(config)
 })();
