@@ -1,5 +1,5 @@
 (function() {
-  function adminController($scope, $rootScope, $auth, ipCookie) {
+  function adminController($scope, $rootScope, $auth) {
     $scope.isAdmin = false;
 
 
@@ -21,7 +21,6 @@
     $scope.handleLoginBtnClick = function() {
      $auth.submitLogin($scope.loginForm)
        .then(function(resp) {
-         alert("you are logged in");
          $rootScope.isAdmin = true;
          $scope.loginForm = "";
        })
@@ -33,9 +32,8 @@
 
     //  Logout
     $scope.handleSignOutBtnClick = function() {
-      $auth.signOut($rootScope.user)
+      $auth.signOut($scope.user)
         .then(function(resp) {
-          alert('you are logged out')
           $rootScope.isAdmin = false;
         })
         .catch(function(resp) {
@@ -47,5 +45,5 @@
 
   angular
 		.module('rescueSite')
-		.controller('adminController', ['$scope', '$rootScope', '$auth', 'ipCookie', adminController]);
+		.controller('adminController', ['$scope', '$rootScope', '$auth', adminController]);
 })();

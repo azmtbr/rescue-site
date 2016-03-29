@@ -18,19 +18,14 @@
           </button>
           <h1 class="navbar-brand">
             <a href="/">Fearless Kitty Rescue</a>
+            <small ng-show="isAdmin">Signed in as: {{user.email}}</small>
           </h1>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a data-toggle="collapse" data-target=".navbar-collapse" href="/">Home</a>
-            </li>
-            <li>
-              <a data-toggle="collapse" data-target=".navbar-collapse" href="/animals">Adopt</a>
-            </li>
-            <li>
-              <a data-toggle="collapse" data-target=".navbar-collapse" href="/contact">Contact</a>
-            </li>
+            <li><a data-toggle="collapse" data-target=".navbar-collapse" href="/">Home</a></li>
+            <li><a data-toggle="collapse" data-target=".navbar-collapse" href="/animals">Adopt</a></li>
+            <li><a data-toggle="collapse" data-target=".navbar-collapse" href="/contact">Contact</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Support<b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -39,10 +34,11 @@
                 <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#">Foster</a></li>
               </ul>
             </li>
-            <li  class="dropdown">
+            <li  class="dropdown" ng-show="isAdmin">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a data-toggle="collapse" data-target=".navbar-collapse" href="/adoption-forms">Completed Adoption Forms</a></li>
+                <li><a data-toggle="collapse" data-target=".navbar-collapse" href="/admin">Sign Out</a></li>
               </ul>
             </li>
           </ul>

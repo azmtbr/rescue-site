@@ -65,6 +65,6 @@
 	}
 
 	angular
-		.module('rescueSite', ['ui.router', 'ui.bootstrap', 'restangular', 'angularFileUpload', 'ng-token-auth', 'ipCookie'])
+		.module('rescueSite', ['ui.router', 'ui.bootstrap', 'restangular', 'angularFileUpload', 'ng-token-auth'])
 		.config(config)
 })();
