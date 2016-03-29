@@ -1,26 +1,27 @@
 
 <div class="container page-content">
-
-  <h1>Log In</h1>
+  <span class="alert-success" ng-show="logoutSuccess">You are signed out. Have a great day!</span>
+  <h1 ng-hide="isAdmin">Sign In</h1>
+  <h1 ng-show="isAdmin">Sign Out</h1>
 
   <!-- Admin Login -->
-  <form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
-    <div class="form-group">
-      <label>email</label>
-      <input type="email" name="email" ng-model="loginForm.email" required="required" class="form-control"/>
-    </div>
+  <div ng-hide="isAdmin">
+    <form autocomplete="false" autocomplete="off" ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
+      <div class="form-group">
+        <label>email</label>
+        <input autocomplete="new-email" type="email" ng-model="loginForm.email" required="required" class="form-control" placeholder="email"/>
+      </div>
 
-    <div class="form-group">
-      <label>password</label>
-      <input type="password" name="password" ng-model="loginForm.password" required="required" class="form-control"/>
-    </div>
+      <div class="form-group">
+        <label>password</label>
+        <input autocomplete="new-password" type="password" ng-model="loginForm.password" required="required" class="form-control" placeholder="password"/>
+      </div>
 
-    <button type="button" class="btn btn-primary btn-lg" ng-click="handleLoginBtnClick()">Sign in</button>
-  </form>
+      <button type="button" class="btn btn-primary btn-lg" ng-click="handleLoginBtnClick()">Sign in</button>
+    </form>
+  </div>
 
 </br>
-
-  <button class="btn btn-default btn-lg" ng-click='handleSignOutBtnClick()'>Sign out</button>
-
+    <button class="btn btn-default btn-lg" ng-click='handleSignOutBtnClick()'>Sign out</button>
 
 </div>
