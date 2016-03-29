@@ -1,5 +1,5 @@
 (function() {
-  function adminController($scope, $auth) {
+  function adminController($scope, $rootScope, $auth, ipCookie) {
     $scope.isAdmin = false;
 
 
@@ -7,35 +7,39 @@
     $scope.handleRegBtnClick = function() {
      $auth.submitRegistration($scope.registrationForm)
        .then(function(resp) {
-         // handle success response
+         console.log('registration successful')
+         $scope.registrationForm = {};
        })
        .catch(function(resp) {
-         // handle error response
+         console.log('nope')
+         $scope.registrationForm = {};
        });
      };
-
-
 
 
     // Login
     $scope.handleLoginBtnClick = function() {
      $auth.submitLogin($scope.loginForm)
        .then(function(resp) {
-         // handle success response
+         alert("you are logged in");
+         $rootScope.isAdmin = true;
+         $scope.loginForm = "";
        })
        .catch(function(resp) {
-         // handle error response
+         alert('login failed');
+         $scope.loginForm = "";
        });
      };
 
     //  Logout
     $scope.handleSignOutBtnClick = function() {
-      $auth.signOut()
+      $auth.signOut($rootScope.user)
         .then(function(resp) {
-          // handle success response
+          alert('you are logged out')
+          $rootScope.isAdmin = false;
         })
         .catch(function(resp) {
-          // handle error response
+          alert('logout not successful')
         });
     };
   }
@@ -43,5 +47,5 @@
 
   angular
 		.module('rescueSite')
-		.controller('adminController', ['$scope', '$auth', adminController]);
+		.controller('adminController', ['$scope', '$rootScope', '$auth', 'ipCookie', adminController]);
 })();

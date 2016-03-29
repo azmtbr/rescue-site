@@ -4,7 +4,7 @@
 		RestangularProvider.setBaseUrl('http://127.0.0.1:4000/api/rescues/1');
 
 		$authProvider.configure({
-			apiUrl: 'http://127.0.0.1:4000/api/rescues/1'
+			apiUrl: 'http://127.0.0.1:4000/api'
 		});
 
 
@@ -65,6 +65,6 @@
 	}
 
 	angular
-		.module('rescueSite', ['ui.router', 'ui.bootstrap', 'restangular', 'angularFileUpload', 'ng-token-auth'])
+		.module('rescueSite', ['ui.router', 'ui.bootstrap', 'restangular', 'angularFileUpload', 'ng-token-auth', 'ipCookie'])
 		.config(config)
 })();
