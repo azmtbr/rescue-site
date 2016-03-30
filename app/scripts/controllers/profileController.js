@@ -1,10 +1,18 @@
 (function() {
   function profileController($scope, $location, $state, Restangular, FileUploader, $stateParams) {
 
+    $scope.isAdmin = true;
+
     Restangular.one('animals', $stateParams['slug']).get().then(function(animal) {
+      $scope.animal = animal;
       $scope.profileUploader = new FileUploader({url: "http://127.0.0.1:4000/api/rescues/$RESCUE_ID/animals/" + animal.slug,
                                                  method: 'PATCH'});
-      $scope.animal = animal;
+      $scope.profileUploader.onSuccessItem = function() {
+        console.log('we have something at least');
+        Restangular.one('animals', $stateParams['slug']).get().then(function(animal) {
+        $scope.animal = animal;
+        })
+      };
 
       Restangular.one('galleries', animal.gallery_id).get().then(function(gallery) {
         $scope.gallery = gallery;
@@ -30,7 +38,6 @@
       }
     });
 
-    $scope.isAdmin = true;
 
 
 

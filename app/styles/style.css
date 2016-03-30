@@ -93,6 +93,14 @@ h1 {
   flex-grow: 1;
 }
 
+.caption {
+  text-align: center;
+}
+
+.caption>h3 {
+  margin-top: 0px;
+}
+
 
 
 @media screen and (max-width: 767px) {
