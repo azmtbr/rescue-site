@@ -1,36 +1,42 @@
 <div class="container page-content">
   <div class="panel panel-default">
-    <div class="panel-heading">{{ animal.name }}'s Profile</div>
+    <div class="panel-heading">{{ animal.name }}'s Profile<a ui-sref="adoption({slug: animal.slug})" class="btn btn-default pull-right adoption-button">Adopt {{animal.name}}</a>
+</div>
     <div class="panel-body">
-      Breed: {{ animal.breed }}
+      <div class="panel-body profile-image-block">
+        <div class="animal-profile-description">
+          <p class="animal-description">Nulla vitae elit libero,
+            a pharetra augue. Aenean lacinia bibendum nulla sed consectetur.
+            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+            Nullam id dolor id nibh ultricies vehicula ut id elit.
+          </p>
+        </div>
+        <div class="animal-profile-image">
+          <a ng-href="http://localhost:4000/{{animal.large_url}}" >
+            <img class="profile-thumbnail" ng-src="http://localhost:4000/{{animal.medium_url}}" />
+          </a>
+        </div>
+      </div>
     </div>
-    <div class="panel-body">
-      Sex: {{ animal.sex }}
-    </div>
-    <div class="panel-body">
-      DOB: {{ animal.dob }}
-    </div>
-    <div class="panel-body">
-      <p>Profile Image</p>
-      <a ng-href="http://localhost:4000/{{animal.large_url}}" >
-        <img class="profile-thumbnail" ng-src="http://localhost:4000/{{animal.thumbnail_url}}" />
-      </a>
-    </div>
+    <ul class="list-group animal-profile-stats">
+      <li class="list-group-item">Breed: {{ animal.breed }}</li>
+      <li class="list-group-item">Sex: {{ animal.sex }}</li>
+      <li class="list-group-item">DOB: {{ animal.dob }}</li>
+    </ul>
   </div>
 
 <!-- Profile Uploader -->
-<div ng-if="profileUploader" ng-show="isAdmin">
-  <p>profile uploader</p>
+<div ng-if="profileUploader" ng-show="isAdmin" class="container uploader">
     <div class="file profileUploader">
+        <p>profile uploader</p>
       <input type="file" nv-file-select="" uploader="profileUploader" multiple="true"/><br/>
     </div>
       <table class="table">
          <thead>
-           <tr>
-             <th width="50%">Name</th>
+           <tr class="uploader-table-headings">
+             <th>Name</th>
              <th ng-show="profileUploader.isHTML5">Size</th>
              <th ng-show="profileUploader.isHTML5">Progress</th>
-             <th>Status</th>
              <th>Actions</th>
            </tr>
          </thead>
@@ -46,19 +52,14 @@
                  <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
                </div>
              </td>
-             <td class="text-center">
-               <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
-               <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
-               <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
-             </td>
              <td nowrap>
-               <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
-                 <span class="glyphicon glyphicon-upload"></span> Upload
+               <button type="button" class="btn btn-success btn-xs uploader-action-button" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                 <div class="glyphicon glyphicon-upload"></div> Upload
                </button>
-               <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
-                 <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+               <button type="button" class="btn btn-warning btn-xs uploader-action-button" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                 <div class="glyphicon glyphicon-ban-circle"></div> Cancel
                </button>
-               <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+               <button type="button" class="btn btn-danger btn-xs uploader-action-button" ng-click="item.remove()">
                  <span class="glyphicon glyphicon-trash"></span> Remove
                </button>
              </td>
@@ -68,33 +69,33 @@
 </div>
 
 
-  <p>Gallery Photos</p>
-  <div class="animal-gallery-card col-sm-6 col-md-4" ng-repeat="photo in photos">
-    <div class="thumbnail">
-      <a ng-href="http://localhost:4000/{{photo.large_url}}" >
-        <img class="gallery-image" ng-src="http://localhost:4000/{{photo.medium_url}}" />
-      </a>
+  <!-- Gallery Photos -->
+  <div class="container">
+    <div class="animal-gallery-card col-sm-6 col-md-4" ng-repeat="photo in photos">
+      <div class="thumbnail">
+        <a ng-href="http://localhost:4000/{{photo.large_url}}" >
+          <img class="gallery-image" ng-src="http://localhost:4000/{{photo.medium_url}}" />
+        </a>
+      </div>
+      <button ng-show="isAdmin" class="gallery-image-delete" ng-click="deletePic(photo)"><i class="glyphicon glyphicon-remove"></i>Remove</button>
     </div>
-    <button ng-show="isAdmin" class="gallery-image-delete" ng-click="deletePic(photo)"><i class="glyphicon glyphicon-remove"></i>Remove</button>
   </div>
 
 
-
 <!-- Gallery Uploader -->
-<div ng-if="galleryUploader" ng-show="isAdmin">
-  <p>gallery uploader</p>
+<div ng-if="galleryUploader" ng-show="isAdmin" class="container uploader gallery-uploader">
     <div class="file galleryUploader">
+      <p>gallery uploader</p>
       <input type="file" nv-file-select="" uploader="galleryUploader" multiple="true"><br/>
     </div>
 
 
       <table class="table">
          <thead>
-           <tr>
-             <th width="50%">Name</th>
+           <tr class="uploader-table-headings">
+             <th>Name</th>
              <th ng-show="galleryUploader.isHTML5">Size</th>
              <th ng-show="galleryUploader.isHTML5">Progress</th>
-             <th>Status</th>
              <th>Actions</th>
            </tr>
          </thead>
@@ -110,19 +111,14 @@
                  <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
                </div>
              </td>
-             <td class="text-center">
-               <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
-               <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
-               <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
-             </td>
              <td nowrap>
-               <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+               <button type="button" class="btn btn-success btn-xs uploader-action-button" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
                  <span class="glyphicon glyphicon-upload"></span> Upload
                </button>
-               <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+               <button type="button" class="btn btn-warning btn-xs uploader-action-button" ng-click="item.cancel()" ng-disabled="!item.isUploading">
                  <span class="glyphicon glyphicon-ban-circle"></span> Cancel
                </button>
-               <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+               <button type="button" class="btn btn-danger btn-xs uploader-action-button" ng-click="item.remove()">
                  <span class="glyphicon glyphicon-trash"></span> Remove
                </button>
              </td>
@@ -133,7 +129,6 @@
 
 </br>
 
-  <a ui-sref="adoption({slug: animal.slug})" class="btn btn-default">Adopt {{animal.name}}</a>
 </div>
 
 </br>

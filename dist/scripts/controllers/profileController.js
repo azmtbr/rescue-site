@@ -8,7 +8,6 @@
       $scope.profileUploader = new FileUploader({url: "http://127.0.0.1:4000/api/rescues/1/animals/" + animal.slug,
                                                  method: 'PATCH'});
       $scope.profileUploader.onSuccessItem = function() {
-        console.log('we have something at least');
         Restangular.one('animals', $stateParams['slug']).get().then(function(animal) {
         $scope.animal = animal;
         })
@@ -20,7 +19,6 @@
                                             method: 'POST',
                                             alias: "photo[gallery_image]"});
         $scope.galleryUploader.onSuccessItem = function() {
-          console.log('we have something at least');
           Restangular.one('galleries', animal.gallery_id).all('photos').getList().then(function(photos) {
             $scope.photos = photos;
           })

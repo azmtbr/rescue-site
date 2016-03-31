@@ -13,7 +13,6 @@ h1 {
 
 /*PROFILE PANEL*/
 .panel-body {
-  border-bottom: 1px solid lightgrey;
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -43,9 +42,29 @@ h1 {
   width: auto;
 }
 
+.animal-profile-description {
+  display: inline-block;
+  max-width: 389px;
+}
+
+.animal-profile-image {
+  display: inline-block;
+}
+
 .gallery-image {
-  max-height: 200px;
+  max-height: 184px;
   width: auto;
+}
+
+.thumbnail {
+  max-height: 192px;
+  margin-bottom: 0px;
+  margin-top: 20px;
+}
+
+.adoption-button {
+  margin-top: -7px;
+  background-color: transparent;
 }
 
 .view-form-button {
@@ -101,6 +120,16 @@ h1 {
   margin-top: 0px;
 }
 
+.uploader {
+  border: 2px solid darkgrey;
+  border-radius: 25px;
+  max-width: 100%;
+}
+
+.uploader-table-headings>th:first-child {
+  width: 33%;
+}
+
 
 
 @media screen and (max-width: 767px) {
@@ -129,6 +158,14 @@ h1 {
     margin-top: 4px;
   }
 
+  .profile-image-block {
+    text-align: center;
+  }
+
+  .uploader-action-button {
+    float: left;
+    margin-top: 3px;
+  }
 }
 
 @media screen and (min-width: 768px) {
