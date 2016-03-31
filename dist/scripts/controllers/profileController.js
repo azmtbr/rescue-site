@@ -1,7 +1,6 @@
 (function() {
   function profileController($scope, $location, $state, Restangular, FileUploader, $stateParams) {
 
-    $scope.isAdmin = true;
 
     Restangular.one('animals', $stateParams['slug']).get().then(function(animal) {
       $scope.animal = animal;

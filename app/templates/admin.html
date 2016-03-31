@@ -1,11 +1,11 @@
 
 <div class="container page-content">
   <span class="alert-success" ng-show="logoutSuccess">You are signed out. Have a great day!</span>
-  <h1 ng-hide="isAdmin">Sign In</h1>
-  <h1 ng-show="isAdmin">Sign Out</h1>
+  <h1 ng-hide="user.signedIn">Sign In</h1>
+  <h1 ng-show="user.signedIn">Sign Out</h1>
 
   <!-- Admin Login -->
-  <div ng-hide="isAdmin">
+  <div ng-hide="user.signedIn">
     <form autocomplete="false" autocomplete="off" ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
       <div class="form-group">
         <label>email</label>

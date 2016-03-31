@@ -26,7 +26,7 @@
   </div>
 
 <!-- Profile Uploader -->
-<div ng-if="profileUploader" ng-show="isAdmin" class="container uploader">
+<div ng-if="profileUploader" ng-show="user.signedIn" class="container uploader">
     <div class="file profileUploader">
         <p>profile uploader</p>
       <input type="file" nv-file-select="" uploader="profileUploader" multiple="true"/><br/>
@@ -83,7 +83,7 @@
 
 
 <!-- Gallery Uploader -->
-<div ng-if="galleryUploader" ng-show="isAdmin" class="container uploader gallery-uploader">
+<div ng-if="galleryUploader" ng-show="user.signedIn" class="container uploader gallery-uploader">
     <div class="file galleryUploader">
       <p>gallery uploader</p>
       <input type="file" nv-file-select="" uploader="galleryUploader" multiple="true"><br/>

@@ -1,11 +1,12 @@
 (function () {
-	function config($stateProvider, $locationProvider, $authProvider, RestangularProvider) {
+		function config($stateProvider, $locationProvider, $authProvider, RestangularProvider) {
 
 		RestangularProvider.setBaseUrl('http://127.0.0.1:4000/api/rescues/1');
 
 		$authProvider.configure({
 			apiUrl: 'http://127.0.0.1:4000/api'
 		});
+
 
 
 		$locationProvider
@@ -67,4 +68,7 @@
 	angular
 		.module('rescueSite', ['ui.router', 'ui.bootstrap', 'restangular', 'angularFileUpload', 'ng-token-auth', 'ipCookie'])
 		.config(config)
+		.run(function($auth) {
+			$auth.validateUser();
+		});
 })();

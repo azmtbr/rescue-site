@@ -1,6 +1,5 @@
 (function() {
   function adminController($scope, $rootScope, $timeout, $auth, ipCookie) {
-    $scope.isAdmin = false;
     $scope.logoutSuccess = false;
     $scope.loginForm = "";
 
@@ -10,7 +9,6 @@
      $auth.submitLogin($scope.loginForm)
        .then(function(resp) {
          $rootScope.isAdmin = true;
-         $scope.isAdmin = true;
          $scope.loginForm = "";
        })
        .catch(function(resp) {
@@ -24,7 +22,6 @@
       $auth.signOut($scope.user)
         .then(function(resp) {
           $rootScope.isAdmin = false;
-          $scope.isAdmin = false;
           $scope.logoutSuccess = true;
           $timeout(function () {
             $scope.logoutSuccess = false;
