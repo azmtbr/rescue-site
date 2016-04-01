@@ -21,13 +21,7 @@
                                             method: 'POST',
                                             alias: "photo[gallery_image]",
                                             withCredentials: true,
-                                            headers: {
-                                                      // 'access-token': $rootScope.user.token,
-                                                      // 'expiry': $rootScope.user.expiry,
-                                                      'token-type': 'Bearer',
-                                                      'uid': $rootScope.user.email,
-                                                      // 'client': $rootScope.user.client_id
-                                                    }
+                                            headers: $auth.retrieveData('auth_headers')
                                             });
         $scope.galleryUploader.onSuccessItem = function() {
           Restangular.one('galleries', animal.gallery_id).all('photos').getList().then(function(photos) {
