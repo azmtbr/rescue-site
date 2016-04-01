@@ -1,5 +1,5 @@
 <div class="container page-content">
-  <div class="panel panel-default" ng-show="isAdmin" ng-repeat="adoption in adoptions | orderBy: '-created_at'">
+  <div class="panel panel-default" ng-show="user.signedIn" ng-repeat="adoption in adoptions | orderBy: '-created_at'">
 
       <div class="panel-heading">
         <div class="panel-title">{{adoption.animal.name}}'s Adoption Form
