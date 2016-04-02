@@ -1,13 +1,13 @@
 (function() {
-  function profileController($scope, $rootScope, $location, $state, $auth, Restangular, FileUploader, $stateParams) {
+  function profileController($scope, $location, $state, $auth, Restangular, FileUploader, $stateParams) {
 
 
-    var user = $rootScope.user;
 
     Restangular.one('animals', $stateParams['slug']).get().then(function(animal) {
       $scope.animal = animal;
       $scope.profileUploader = new FileUploader({url: "http://127.0.0.1:4000/api/rescues/1/animals/" + animal.slug,
-                                                 method: 'PATCH'});
+                                                 method: 'PATCH'
+                                               })
       $scope.profileUploader.onSuccessItem = function() {
         Restangular.one('animals', $stateParams['slug']).get().then(function(animal) {
         $scope.animal = animal;
@@ -16,13 +16,11 @@
 
       Restangular.one('galleries', animal.gallery_id).get().then(function(gallery) {
         $scope.gallery = gallery;
-        $auth.validateUser();
         $scope.galleryUploader = new FileUploader({url: "http://127.0.0.1:4000/api/rescues/1/galleries/" + animal.gallery_id + "/photos",
                                             method: 'POST',
                                             alias: "photo[gallery_image]",
-                                            withCredentials: true,
-                                            headers: $auth.retrieveData('auth_headers')
-                                            });
+                                            // headers: $auth.retrieveData('auth_headers')
+                                            })
         $scope.galleryUploader.onSuccessItem = function() {
           Restangular.one('galleries', animal.gallery_id).all('photos').getList().then(function(photos) {
             $scope.photos = photos;
@@ -49,5 +47,5 @@
 
   angular
 		.module('rescueSite')
-		.controller('profileController', ['$scope', '$rootScope', '$location', '$state', '$auth', 'Restangular', 'FileUploader', '$stateParams', profileController]);
+		.controller('profileController', ['$scope', '$location', '$state', '$auth', 'Restangular', 'FileUploader', '$stateParams', profileController]);
 })();
