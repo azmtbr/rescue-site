@@ -25,8 +25,41 @@
     </ul>
   </div>
 
+<!-- Testing ng-file-upload -->
+
 <!-- Profile Uploader -->
-<div ng-if="profileUploader" ng-show="user.signedIn" class="container uploader">
+<div ng-show="user.signedIn" class="container uploader">
+<form name="form">
+  Profile Upload
+  <input type="file" class="btn btn-default" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+    ngf-accept="'image/*'" ngf-max-size="20MB">Select</input>
+    <button type="submit" ng-click="profilePicSubmit()">Upload</button>
+
+</form>
+<div ngf-thumbnail="file" ngf-size="{width: 20, height: 20, quality: 0.9}" ngf-as-background="boolean">
+</div>
+</div>
+
+<!-- Gallery Uploader -->
+<div ng-show="user.signedIn" class="container uploader">
+  <form name="form">
+    Gallery Upload
+    <input type="file" ngf-select ng-model="files" name="files" ngf-pattern="'image/*'"
+      ngf-accept="'image/*'" ngf-max-size="20MB" ngf-multiple="true"></input>
+      <ul>
+        <li ng-repeat="f in files">{{f.name}}</li>
+      </ul>
+      <button type="submit" ng-click="galleryPicSubmit()">Upload</button>
+
+  </form>
+  <!-- <div ngf-thumbnail="file" ngf-size="{width: 20, height: 20, quality: 0.9}" ngf-as-background="boolean">
+    Image thumbnail: <img ngf-thumbnail="file || '/thumb.jpg'">
+  </div> -->
+</div>
+
+
+<!-- Profile Uploader -->
+<!-- <div ng-if="profileUploader" ng-show="user.signedIn" class="container uploader">
     <div class="file profileUploader">
         <p>profile uploader</p>
       <input type="file" nv-file-select="" uploader="profileUploader" multiple="true"/><br/>
@@ -66,7 +99,7 @@
            </tr>
          </tbody>
        </table>
-</div>
+</div> -->
 
 
   <!-- Gallery Photos -->
@@ -83,13 +116,11 @@
 
 
 <!-- Gallery Uploader -->
-<div ng-if="galleryUploader" ng-show="user.signedIn" class="container uploader gallery-uploader">
+<!-- <div ng-if="galleryUploader" ng-show="user.signedIn" class="container uploader gallery-uploader">
     <div class="file galleryUploader">
       <p>gallery uploader</p>
       <input type="file" nv-file-select="" uploader="galleryUploader" multiple="true"><br/>
     </div>
-
-
       <table class="table">
          <thead>
            <tr class="uploader-table-headings">
@@ -125,7 +156,7 @@
            </tr>
          </tbody>
        </table>
-</div>
+</div> -->
 
 </br>
 
