@@ -29,7 +29,7 @@
         $scope.gallery = gallery;
 
         $scope.galleryPicSubmit = function() {
-            $scope.galleryPicUpload($scope.file);
+            $scope.galleryPicUpload($scope.files);
         };
 
         $scope.galleryPicUpload = function (files) {
@@ -37,17 +37,13 @@
             $scope.photos = photos;
           });
 
-          var photos = [];
           for (var i = files.length - 1; i >= 0; i--)
-              photos.push(files[i].photo);
-
 
             Upload.upload({
                 url: "http://127.0.0.1:4000/api/rescues/$RESCUE_ID/galleries/" + animal.gallery_id + "/photos",
                 headers: $auth.retrieveData('auth_headers'),
                 method: 'POST',
-                fileFormDataName : photos,
-                file: files
+                data: {"photo[gallery_image]": files[i]}
               }).then(function() {
                   Restangular.one('galleries', animal.gallery_id).all('photos').getList().then(function(photos) {
                       $scope.photos = photos;
