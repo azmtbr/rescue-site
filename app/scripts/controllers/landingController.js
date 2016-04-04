@@ -47,6 +47,10 @@
         });
       }
 
+      // CAROUSEL
+      $scope.myInterval = 3000;
+      $scope.active = 1;
+
 
 
 
