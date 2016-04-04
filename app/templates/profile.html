@@ -25,138 +25,66 @@
     </ul>
   </div>
 
-<!-- Testing ng-file-upload -->
 
 <!-- Profile Uploader -->
-<div ng-show="user.signedIn" class="container uploader">
-<form name="form">
-  Profile Upload
-  <input type="file" class="btn btn-default" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
-    ngf-accept="'image/*'" ngf-max-size="20MB">Select</input>
-    <button type="submit" ng-click="profilePicSubmit()">Upload</button>
-
-</form>
-<div ngf-thumbnail="file" ngf-size="{width: 20, height: 20, quality: 0.9}" ngf-as-background="boolean">
-</div>
-</div>
-
-<!-- Gallery Uploader -->
-<div ng-show="user.signedIn" class="container uploader">
-  <form name="form">
-    Gallery Upload
-    <input type="file" ngf-select ng-model="files" name="files" ngf-pattern="'image/*'"
-      ngf-accept="'image/*'" ngf-max-size="20MB" ngf-multiple="true"></input>
-      <ul>
-        <li ng-repeat="f in files">{{f.name}}</li>
-      </ul>
-      <button type="submit" ng-click="galleryPicSubmit()">Upload</button>
-
-  </form>
-  <!-- <div ngf-thumbnail="file" ngf-size="{width: 20, height: 20, quality: 0.9}" ngf-as-background="boolean">
-    Image thumbnail: <img ngf-thumbnail="file || '/thumb.jpg'">
-  </div> -->
-</div>
-
-
-<!-- Profile Uploader -->
-<!-- <div ng-if="profileUploader" ng-show="user.signedIn" class="container uploader">
-    <div class="file profileUploader">
-        <p>profile uploader</p>
-      <input type="file" nv-file-select="" uploader="profileUploader" multiple="true"/><br/>
+<div ng-show="user.signedIn" class="panel panel-default profile-uploader-panel">
+  <div class="panel-heading profile-uploader-heading" role="tab">
+    <h4 class="panel-title profile-uploader-title">
+    <button class="uploader-button" type="button" data-toggle="collapse" data-target="#profile-uploader-collapse">
+      Update Profile Pic
+    </button>
+    </h4>
+  </div>
+  <div id="profile-uploader-collapse" class="panel-collapse collapse" role="tabpanel">
+    <div class="panel-body profile-uploader-body">
+      <form name="form">
+        <input type="file" class="btn btn-default" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+                ngf-accept="'image/*'" ngf-max-size="20MB">Select</input>
+        <button class="btn btn-default" type="submit" ng-click="profilePicSubmit()">Upload</button>
+      </form>
     </div>
-      <table class="table">
-         <thead>
-           <tr class="uploader-table-headings">
-             <th>Name</th>
-             <th ng-show="profileUploader.isHTML5">Size</th>
-             <th ng-show="profileUploader.isHTML5">Progress</th>
-             <th>Actions</th>
-           </tr>
-         </thead>
-         <tbody>
-           <tr ng-repeat="item in profileUploader.queue">
-             <td>
-               <strong>{{ item.file.name }}</strong>
-               <div ng-show="profileUploader.isHTML5" ng-thumb="{ file: item._file, height: 100 }"></div>
-             </td>
-             <td ng-show="profileUploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
-             <td ng-show="profileUploader.isHTML5">
-               <div class="progress" style="margin-bottom: 0;">
-                 <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
-               </div>
-             </td>
-             <td nowrap>
-               <button type="button" class="btn btn-success btn-xs uploader-action-button" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
-                 <div class="glyphicon glyphicon-upload"></div> Upload
-               </button>
-               <button type="button" class="btn btn-warning btn-xs uploader-action-button" ng-click="item.cancel()" ng-disabled="!item.isUploading">
-                 <div class="glyphicon glyphicon-ban-circle"></div> Cancel
-               </button>
-               <button type="button" class="btn btn-danger btn-xs uploader-action-button" ng-click="item.remove()">
-                 <span class="glyphicon glyphicon-trash"></span> Remove
-               </button>
-             </td>
-           </tr>
-         </tbody>
-       </table>
-</div> -->
+  </div>
+</div>
 
 
-  <!-- Gallery Photos -->
-  <div class="container">
-    <div class="animal-gallery-card col-sm-6 col-md-4" ng-repeat="photo in photos">
-      <div class="thumbnail">
-        <a ng-href="http://localhost:4000/{{photo.large_url}}" >
-          <img class="gallery-image" ng-src="http://localhost:4000/{{photo.medium_url}}" />
-        </a>
-      </div>
+
+<!-- Gallery Photos -->
+<div class="container">
+  <div class="animal-gallery-card col-sm-6 col-md-4" ng-repeat="photo in photos">
+    <div class="thumbnail">
+      <a ng-href="http://localhost:4000/{{photo.large_url}}" >
+        <img class="gallery-image" ng-src="http://localhost:4000/{{photo.medium_url}}" />
+      </a>
       <button ng-show="user.signedIn" class="gallery-image-delete" ng-click="deletePic(photo)"><i class="glyphicon glyphicon-remove"></i>Remove</button>
     </div>
   </div>
-
+</div>
 
 <!-- Gallery Uploader -->
-<!-- <div ng-if="galleryUploader" ng-show="user.signedIn" class="container uploader gallery-uploader">
-    <div class="file galleryUploader">
-      <p>gallery uploader</p>
-      <input type="file" nv-file-select="" uploader="galleryUploader" multiple="true"><br/>
+<div ng-show="user.signedIn" class="panel panel-default gallery-uploader-panel">
+  <div class="panel-heading gallery-uploader-heading" role="tab">
+    <h4 class="panel-title gallery-uploader-title">
+    <button class="uploader-button" type="button" data-toggle="collapse" data-target="#gallery-uploader-collapse">
+      Update Gallery
+    </button>
+    </h4>
+  </div>
+  <div id="gallery-uploader-collapse" class="panel-collapse collapse" role="tabpanel">
+    <div class="panel-body gallery-uploader-body">
+      <form name="form">
+        <input type="file" ngf-select ng-model="files" name="files" ngf-pattern="'image/*'"
+          ngf-accept="'image/*'" ngf-max-size="20MB" ngf-multiple="true"></input>
+          <ul>
+            <li ng-repeat="f in files">{{f.name}}</li>
+          </ul>
+          <button class="btn btn-default" type="submit" ng-click="galleryPicSubmit()">Upload</button>
+      </form>
     </div>
-      <table class="table">
-         <thead>
-           <tr class="uploader-table-headings">
-             <th>Name</th>
-             <th ng-show="galleryUploader.isHTML5">Size</th>
-             <th ng-show="galleryUploader.isHTML5">Progress</th>
-             <th>Actions</th>
-           </tr>
-         </thead>
-         <tbody>
-           <tr ng-repeat="item in galleryUploader.queue">
-             <td>
-               <strong>{{ item.file.name }}</strong>
-               <div ng-show="galleryUploader.isHTML5" ng-thumb="{ file: item._file, height: 100 }"></div>
-             </td>
-             <td ng-show="galleryUploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
-             <td ng-show="galleryUploader.isHTML5">
-               <div class="progress" style="margin-bottom: 0;">
-                 <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
-               </div>
-             </td>
-             <td nowrap>
-               <button type="button" class="btn btn-success btn-xs uploader-action-button" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
-                 <span class="glyphicon glyphicon-upload"></span> Upload
-               </button>
-               <button type="button" class="btn btn-warning btn-xs uploader-action-button" ng-click="item.cancel()" ng-disabled="!item.isUploading">
-                 <span class="glyphicon glyphicon-ban-circle"></span> Cancel
-               </button>
-               <button type="button" class="btn btn-danger btn-xs uploader-action-button" ng-click="item.remove()">
-                 <span class="glyphicon glyphicon-trash"></span> Remove
-               </button>
-             </td>
-           </tr>
-         </tbody>
-       </table>
-</div> -->
+  </div>
+</div>
+
+
+
 
 </br>
 
