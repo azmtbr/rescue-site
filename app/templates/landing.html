@@ -3,4 +3,38 @@
     <h1>My Rescue Site</h1>
     <p>Welcome! Let's Turn MyRescueSite.com into YourRescueSite.com</p>
   </div>
+
+
+  <div class="container">
+    <div class="landing-gallery col-sm-6 col-md-4" ng-repeat="landing_image in landing_images">
+      <div class="thumbnail">
+          Test gallery
+          <img class="gallery-image" ng-src="http://localhost:4000/{{landing_image.large_url}}" />
+        <button ng-show="user.signedIn" class="gallery-image-delete" ng-click="deletePic(landing_image)"><i class="glyphicon glyphicon-remove"></i>Remove</button>
+      </div>
+    </div>
+  </div>
+
+  <div ng-show="user.signedIn" class="panel panel-default landing-gallery-uploader-panel">
+    <div class="panel-heading landing-gallery-uploader-heading" role="tab">
+      <h4 class="panel-title landing-gallery-uploader-title">
+      <button class="uploader-button" type="button" data-toggle="collapse" data-target="#landing-gallery-uploader-collapse">
+        Update Gallery
+      </button>
+      </h4>
+    </div>
+    <div id="landing-gallery-uploader-collapse" class="panel-collapse collapse" role="tabpanel">
+      <div class="panel-body landing-gallery-uploader-body">
+        <form name="form">
+          <input type="file" ngf-select ng-model="files" name="files" ngf-pattern="'image/*'"
+            ngf-accept="'image/*'" ngf-max-size="20MB" ngf-multiple="true"></input>
+            <ul>
+              <li ng-repeat="f in files">{{f.name}}</li>
+            </ul>
+            <button class="btn btn-default" type="submit" ng-click="landingGalleryPicSubmit()">Upload</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
 </div>

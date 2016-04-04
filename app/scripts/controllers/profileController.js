@@ -1,5 +1,5 @@
 (function() {
-  function profileController($scope, $location, $state, $auth, Upload, $timeout, Restangular, $stateParams) {
+  function profileController($scope, $auth, Upload,  Restangular, $stateParams) {
 
 
 
@@ -57,19 +57,6 @@
                       Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
                     });
         };
-
-
-
-        // $scope.galleryUploader = new FileUploader({url: "http://127.0.0.1:4000/api/rescues/$RESCUE_ID/galleries/" + animal.gallery_id + "/photos",
-        //                                     method: 'POST',
-        //                                     alias: "photo[gallery_image]",
-        //                                     headers: $auth.retrieveData('auth_headers')
-        //                                     })
-        // $scope.galleryUploader.onSuccessItem = function() {
-        //   Restangular.one('galleries', animal.gallery_id).all('photos').getList().then(function(photos) {
-        //     $scope.photos = photos;
-        //   })
-        //   };
       });
 
       Restangular.one('galleries', animal.gallery_id).all('photos').getList().then(function(photos) {
@@ -90,5 +77,5 @@
 
   angular
 		.module('rescueSite')
-		.controller('profileController', ['$scope', '$location', '$state', '$auth', 'Upload', '$timeout', 'Restangular', '$stateParams', profileController]);
+		.controller('profileController', ['$scope', '$auth', 'Upload', 'Restangular', '$stateParams', profileController]);
 })();
