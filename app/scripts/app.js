@@ -1,7 +1,7 @@
 (function () {
 		function config($stateProvider, $locationProvider, $authProvider, RestangularProvider) {
 
-		RestangularProvider.setBaseUrl('http://127.0.0.1:4000/api/rescues/$RESCUE_ID');
+		RestangularProvider.setBaseUrl('http://127.0.0.1:4000/api/');
 
 		$authProvider.configure({
 			apiUrl: 'http://127.0.0.1:4000/api'

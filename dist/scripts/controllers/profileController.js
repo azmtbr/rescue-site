@@ -14,7 +14,7 @@
       $scope.profilePicUpload = function (file) {
 
           Upload.upload({
-              url: "http://127.0.0.1:4000/api/rescues/1/animals/" + animal.slug,
+              url: "http://127.0.0.1:4000/api/animals/" + animal.slug,
               headers: $auth.retrieveData('auth_headers'),
               method: 'PATCH',
               file: file
@@ -40,7 +40,7 @@
           for (var i = files.length - 1; i >= 0; i--)
 
             Upload.upload({
-                url: "http://127.0.0.1:4000/api/rescues/1/galleries/" + animal.gallery_id + "/photos",
+                url: "http://127.0.0.1:4000/api/galleries/" + animal.gallery_id + "/photos",
                 headers: $auth.retrieveData('auth_headers'),
                 method: 'POST',
                 data: {"photo[gallery_image]": files[i]}

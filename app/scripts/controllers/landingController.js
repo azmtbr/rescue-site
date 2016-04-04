@@ -18,7 +18,7 @@
           for (var i = files.length - 1; i >= 0; i--)
 
             Upload.upload({
-                url: "http://127.0.0.1:4000/api/rescues/$RESCUE_ID/landing_galleries/" + 1 + "/landing_images",
+                url: "http://127.0.0.1:4000/api/landing_galleries/" + 1 + "/landing_images",
                 headers: $auth.retrieveData('auth_headers'),
                 method: 'POST',
                 data: {"landing_image[landing_image]": files[i]}
