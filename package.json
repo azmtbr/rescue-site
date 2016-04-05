@@ -2,6 +2,9 @@
   "name": "My Rescue Site",
   "version": "0.0.2",
   "description": "A user friendly app for animal rescues",
+  "engines": {
+    "node": "4.2.1"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/azmtbr/rescue-site"
