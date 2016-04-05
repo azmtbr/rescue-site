@@ -1,0 +1,33 @@
+@media print  {
+  .navbar {
+    display: none;
+  }
+
+  .print-button {
+    display: none;
+  }
+
+  .print-header-logo {
+    max-height: 48px;
+    margin-top: -8px;
+    width:auto;
+    float: right;
+  }
+
+  .print-page-header {
+    margin-top: 19px;
+  }
+
+  .print-small-text {
+    font-size: 40%;
+    margin-left: 30%;
+  }
+
+  .print-page-content>li>h4 {
+    font-family: Verdana, Geneva, sans-serif;
+  }
+
+  .print-page-content>li>p {
+    font-family: Verdana, Geneva, sans-serif;
+  }
+}
