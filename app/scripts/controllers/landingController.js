@@ -3,8 +3,8 @@
 
 
    Restangular.one('rescues', slug).get().then(function(rescue) {
-     $scope.landing_gallery = rescue.landing_gallery
-   })
+     $scope.rescue = rescue
+
 
         // Restangular.one('rescues', ).one('landing_galleries', 1).get().then(function(landing_gallery) {
         // $scope.landing_gallery = landing_gallery;
@@ -14,7 +14,7 @@
         };
 
         $scope.landingGalleryPicUpload = function (files) {
-          Restangular.one('landing_galleries', landing_gallery).all('landing_images').getList().then(function(landing_images) {
+          Restangular.one('landing_galleries', rescue.landing_gallery_id).all('landing_images').getList().then(function(landing_images) {
             $scope.landing_images = landing_images;
           });
 
@@ -26,7 +26,7 @@
                 method: 'POST',
                 data: {"landing_image[landing_image]": files[i]}
               }).then(function() {
-                  Restangular.one('landing_galleries', landing_gallery).all('landing_images').getList().then(function(landing_images) {
+                  Restangular.one('landing_galleries', rescue.landing_gallery_id).all('landing_images').getList().then(function(landing_images) {
                       $scope.landing_images = landing_images;
                   })
                 }, function (response) {
@@ -40,15 +40,17 @@
         };
       // });
 
-      Restangular.one('rescues', slug).one('landing_galleries', landing_gallery).all('landing_images').getList().then(function(landing_images) {
+      Restangular.one('rescues', slug).one('landing_galleries', rescue.landing_gallery_id).all('landing_images').getList().then(function(landing_images) {
         $scope.landing_images = landing_images;
       });
 
       $scope.deletePic = function(landing_image) {
-        Restangular.one('rescues', slug).one('landing_galleries', landing_gallery).one('landing_images', landing_image.id).remove().then(function(){
+        Restangular.one('rescues', slug).one('landing_galleries', rescue.landing_gallery_id).one('landing_images', landing_image.id).remove().then(function(){
           $scope.landing_images = _.without($scope.landing_images, landing_image);
         });
       }
+
+    });
 
       // CAROUSEL
       $scope.myInterval = 3000;
