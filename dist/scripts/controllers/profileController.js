@@ -14,7 +14,7 @@
       $scope.profilePicUpload = function (file) {
 
           Upload.upload({
-              url: "http://rescue-site-api.herokuapp.com/api/rescues/fearless/animals/" + animal.slug,
+              url: "https://rescue-site-api.herokuapp.com/api/rescues/fearless/animals/" + animal.slug,
               headers: $auth.retrieveData('auth_headers'),
               method: 'PATCH',
               file: file
@@ -40,7 +40,7 @@
           for (var i = files.length - 1; i >= 0; i--)
 
             Upload.upload({
-                url: "http://rescue-site-api.herokuapp.com/api/rescues/fearless/galleries/" + animal.gallery_id + "/photos",
+                url: "https://rescue-site-api.herokuapp.com/api/rescues/fearless/galleries/" + animal.gallery_id + "/photos",
                 headers: $auth.retrieveData('auth_headers'),
                 method: 'POST',
                 data: {"photo[gallery_image]": files[i]}
