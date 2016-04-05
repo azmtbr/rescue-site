@@ -6,7 +6,7 @@
   //    // get landing gallery id
   //  })
 
-        Restangular.one('rescues', slug).one('landing_galleries', 1).get().then(function(landing_gallery) {
+        Restangular.one('rescues', 1).one('landing_galleries', 1).get().then(function(landing_gallery) {
         $scope.landing_gallery = landing_gallery;
 
         $scope.landingGalleryPicSubmit = function() {
@@ -40,7 +40,7 @@
         };
       });
 
-      Restangular.one('rescues', slug).one('landing_galleries', 1).all('landing_images').getList().then(function(landing_images) {
+      Restangular.one('rescues', 1).one('landing_galleries', 1).all('landing_images').getList().then(function(landing_images) {
         $scope.landing_images = landing_images;
       });
 

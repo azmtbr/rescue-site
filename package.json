@@ -1,10 +1,10 @@
 {
-  "name": "bloc-frontend-project-starter",
+  "name": "My Rescue Site",
   "version": "0.0.2",
-  "description": "Starter project for the Bloc Frontend Web Development",
+  "description": "A user friendly app for animal rescues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bloc/bloc-frontend-project-starter"
+    "url": "https://github.com/azmtbr/rescue-site"
   },
   "main": "server.js",
   "scripts": {
