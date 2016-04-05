@@ -3,7 +3,7 @@
 
 
 
-    Restangular.one('animals', $stateParams['slug']).get().then(function(animal) {
+    Restangular.one('rescues', slug).one('animals', $stateParams['slug']).get().then(function(animal) {
       $scope.animal = animal;
 
 
@@ -14,18 +14,18 @@
       $scope.profilePicUpload = function (file) {
 
           Upload.upload({
-              url: "http://127.0.0.1:4000/api/animals/" + animal.slug,
+              url: "http://rescue-site-api.herokuapp.com/api/rescues/fearless/animals/" + animal.slug,
               headers: $auth.retrieveData('auth_headers'),
               method: 'PATCH',
               file: file
             }).then(function() {
-              Restangular.one('animals', $stateParams['slug']).get().then(function(animal) {
+              Restangular.one('rescues', slug).one('animals', $stateParams['slug']).get().then(function(animal) {
                 $scope.animal = animal;
             })
           });
         };
 
-      Restangular.one('galleries', animal.gallery_id).get().then(function(gallery) {
+      Restangular.one('rescues', slug).one('galleries', animal.gallery_id).get().then(function(gallery) {
         $scope.gallery = gallery;
 
         $scope.galleryPicSubmit = function() {
@@ -33,19 +33,19 @@
         };
 
         $scope.galleryPicUpload = function (files) {
-          Restangular.one('galleries', animal.gallery_id).all('photos').getList().then(function(photos) {
+          Restangular.one('rescues', slug).one('galleries', animal.gallery_id).all('photos').getList().then(function(photos) {
             $scope.photos = photos;
           });
 
           for (var i = files.length - 1; i >= 0; i--)
 
             Upload.upload({
-                url: "http://127.0.0.1:4000/api/galleries/" + animal.gallery_id + "/photos",
+                url: "http://rescue-site-api.herokuapp.com/api/rescues/fearless/galleries/" + animal.gallery_id + "/photos",
                 headers: $auth.retrieveData('auth_headers'),
                 method: 'POST',
                 data: {"photo[gallery_image]": files[i]}
               }).then(function() {
-                  Restangular.one('galleries', animal.gallery_id).all('photos').getList().then(function(photos) {
+                  Restangular.one('rescues', slug).one('galleries', animal.gallery_id).all('photos').getList().then(function(photos) {
                       $scope.photos = photos;
                   })
                 }, function (response) {
@@ -59,12 +59,12 @@
         };
       });
 
-      Restangular.one('galleries', animal.gallery_id).all('photos').getList().then(function(photos) {
+      Restangular.one('rescues', slug).one('galleries', animal.gallery_id).all('photos').getList().then(function(photos) {
         $scope.photos = photos;
       });
 
       $scope.deletePic = function(photo) {
-        Restangular.one('galleries', animal.gallery_id).one('photos', photo.id).remove().then(function(){
+        Restangular.one('rescues', slug).one('galleries', animal.gallery_id).one('photos', photo.id).remove().then(function(){
           $scope.photos = _.without($scope.photos, photo);
         });
       }

@@ -1,7 +1,7 @@
 (function() {
   function listingController($scope, Restangular, $stateParams) {
 
-    Restangular.all('animals').getList().then(function(animals) {
+    Restangular.one('rescues', slug).all('animals').getList().then(function(animals) {
       $scope.animals = animals;
     })
   }
