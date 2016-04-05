@@ -2,8 +2,8 @@
   function landingController($scope, $auth, Upload, Restangular, $stateParams) {
 
 
-   Restangular.one('rescues', slug).get().then(function(landing_gallery) {
-     $scope.rescue.landing_gallery = landing_gallery
+   Restangular.one('rescues', slug).get().then(function(rescue) {
+     $scope.landing_gallery = rescue.landing_gallery
    })
 
         // Restangular.one('rescues', ).one('landing_galleries', 1).get().then(function(landing_gallery) {
@@ -13,7 +13,7 @@
             $scope.landingGalleryPicUpload($scope.files);
         };
 
-        $scope.landingGalleryPicUpload = function (files, landing_gallery) {
+        $scope.landingGalleryPicUpload = function (files) {
           Restangular.one('landing_galleries', landing_gallery).all('landing_images').getList().then(function(landing_images) {
             $scope.landing_images = landing_images;
           });
@@ -25,7 +25,7 @@
                 headers: $auth.retrieveData('auth_headers'),
                 method: 'POST',
                 data: {"landing_image[landing_image]": files[i]}
-              }).then(function(landing_gallery) {
+              }).then(function() {
                   Restangular.one('landing_galleries', landing_gallery).all('landing_images').getList().then(function(landing_images) {
                       $scope.landing_images = landing_images;
                   })
@@ -44,7 +44,7 @@
         $scope.landing_images = landing_images;
       });
 
-      $scope.deletePic = function(landing_image, landing_gallery) {
+      $scope.deletePic = function(landing_image) {
         Restangular.one('rescues', slug).one('landing_galleries', landing_gallery).one('landing_images', landing_image.id).remove().then(function(){
           $scope.landing_images = _.without($scope.landing_images, landing_image);
         });
