@@ -1,11 +1,10 @@
 (function() {
   function landingController($scope, $auth, Upload, Restangular, $stateParams) {
 
-   debugger
 
-   Restangular.one('rescues', slug).get().then(function(rescue) {
-     // get landing gallery id
-   })
+  //  Restangular.one('rescues', slug).get().then(function(rescue) {
+  //    // get landing gallery id
+  //  })
 
         Restangular.one('rescues', slug).one('landing_galleries', 1).get().then(function(landing_gallery) {
         $scope.landing_gallery = landing_gallery;
