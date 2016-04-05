@@ -1,13 +1,14 @@
 (function () {
 		function config($stateProvider, $locationProvider, $authProvider, RestangularProvider) {
     window.slug = location.hostname.substring(0,location.hostname.indexOf("."));
-		RestangularProvider.setBaseUrl('http://rescue-site-api.herokuapp.com');
+		RestangularProvider.setBaseUrl('http://127.0.0.1:4000/api');
 		RestangularProvider.setRequestSuffix('');
 
 
 		$authProvider.configure({
-			apiUrl: 'http://rescue-site-api.herokuapp.com'
+			apiUrl: 'http://127.0.0.1:4000/api'
 		});
+
 
 
 
@@ -72,5 +73,8 @@
 		.config(config)
 		.run(function($auth) {
 			$auth.validateUser();
-		});
+		})
+		.constant("URL", {
+		 			"CURRENT": 'http://localhost:4000/api'
+				});
 })();
