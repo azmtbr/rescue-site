@@ -1,9 +1,13 @@
 (function() {
   function landingController($scope, $auth, Upload, Restangular, $stateParams) {
 
+   debugger
 
+   Restangular.one('rescues', slug).get().then(function(rescue) {
+     // get landing gallery id
+   })
 
-      Restangular.one('landing_galleries', 1).get().then(function(landing_gallery) {
+        Restangular.one('rescues', slug).one('landing_galleries', 1).get().then(function(landing_gallery) {
         $scope.landing_gallery = landing_gallery;
 
         $scope.landingGalleryPicSubmit = function() {
@@ -18,7 +22,7 @@
           for (var i = files.length - 1; i >= 0; i--)
 
             Upload.upload({
-                url: "http://127.0.0.1:4000/api/rescues/1/landing_galleries/" + 1 + "/landing_images",
+                url: "http://rescue-site-api.herokuapp.com/api/landing_galleries/" + 1 + "/landing_images",
                 headers: $auth.retrieveData('auth_headers'),
                 method: 'POST',
                 data: {"landing_image[landing_image]": files[i]}
@@ -37,12 +41,12 @@
         };
       });
 
-      Restangular.one('landing_galleries', 1).all('landing_images').getList().then(function(landing_images) {
+      Restangular.one('rescues', slug).one('landing_galleries', 1).all('landing_images').getList().then(function(landing_images) {
         $scope.landing_images = landing_images;
       });
 
       $scope.deletePic = function(landing_image) {
-        Restangular.one('landing_galleries', 1).one('landing_images', landing_image.id).remove().then(function(){
+        Restangular.one('rescues', 'fearless').one('landing_galleries', 1).one('landing_images', landing_image.id).remove().then(function(){
           $scope.landing_images = _.without($scope.landing_images, landing_image);
         });
       }
