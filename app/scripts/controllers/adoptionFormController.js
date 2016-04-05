@@ -1,7 +1,7 @@
 (function() {
   function adoptionFormController($scope, $location, $stateParams, Restangular) {
 
-    Restangular.one('animals', $stateParams['slug']).get().then(function(animal) {
+    Restangular.one('rescues', slug).one('animals', $stateParams['slug']).get().then(function(animal) {
       $scope.animal = animal;
       $scope.adoption = {animal_id: animal.id};
     })
