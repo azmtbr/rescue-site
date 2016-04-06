@@ -1,5 +1,5 @@
 (function() {
-  function landingController($scope, $auth, Upload, URL, Restangular, $stateParams) {
+  function landingController($scope, $auth, Upload, Restangular, $stateParams) {
 
 
    Restangular.one('rescues', slug).get().then(function(rescue) {
@@ -12,7 +12,7 @@
         };
 
         $scope.landingGalleryPicUpload = function (files) {
-          Restangular.one('rescues', slug).one('landing_galleries', rescue.landing_gallery.id).all('landing_images', 'https://s3-us-west-2.amazonaws.com/rescue-site/landing_images/landing_images/000/000/').getList().then(function(landing_images) {
+          Restangular.one('rescues', slug).one('landing_galleries', rescue.landing_gallery.id).all('landing_images').getList().then(function(landing_images) {
             $scope.landing_images = landing_images;
           });
 
@@ -62,5 +62,5 @@
 
   angular
 		.module('rescueSite')
-		.controller('landingController', ['$scope', '$auth', 'Upload', 'URL', 'Restangular', '$stateParams', landingController]);
+		.controller('landingController', ['$scope', '$auth', 'Upload', 'Restangular', '$stateParams', landingController]);
 })();
