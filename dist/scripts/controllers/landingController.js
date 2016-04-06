@@ -1,5 +1,5 @@
 (function() {
-  function landingController($scope, $auth, Upload, Restangular, $stateParams) {
+  function landingController($scope, $auth, Upload, URL, Restangular, $stateParams) {
 
 
    Restangular.one('rescues', slug).get().then(function(rescue) {
@@ -19,7 +19,7 @@
           for (var i = files.length - 1; i >= 0; i--)
 
             Upload.upload({
-                url: URL_PRODUCTION + slug + "/landing_galleries/" + rescue.landing_gallery.id + "/landing_images",
+                url: URL.PRODUCTION + slug + "/landing_galleries/" + rescue.landing_gallery.id + "/landing_images",
                 headers: $auth.retrieveData('auth_headers'),
                 method: 'POST',
                 data: {"landing_image[landing_image]": files[i]}
@@ -62,5 +62,5 @@
 
   angular
 		.module('rescueSite')
-		.controller('landingController', ['$scope', '$auth', 'Upload', 'Restangular', '$stateParams', landingController]);
+		.controller('landingController', ['$scope', '$auth', 'Upload', 'URL', 'Restangular', '$stateParams', landingController]);
 })();
