@@ -14,7 +14,7 @@
       $scope.profilePicUpload = function (file) {
 
           Upload.upload({
-              url: "https://rescue-site-api.herokuapp.com/api/rescues/" + slug + "/animals/" + animal.slug,
+              url: "https://s3.amazonaws.com/" + slug + "/animals/" + animal.slug,
               headers: $auth.retrieveData('auth_headers'),
               method: 'PATCH',
               file: file
