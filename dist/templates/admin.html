@@ -5,7 +5,7 @@
   <h1 ng-show="user.signedIn">Sign Out</h1>
 
   <!-- Admin Login -->
-  <div ng-hide="user.signedIn">
+  <div class="admin-sign-in" ng-hide="user.signedIn">
     <form autocomplete="false" autocomplete="off" ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
       <div class="form-group">
         <label>email</label>
@@ -22,6 +22,7 @@
   </div>
 
 </br>
+  <div class="admin-sign-out-button" ng-hide="!user.signedIn">
     <button class="btn btn-default btn-lg" ng-click='handleSignOutBtnClick()'>Sign out</button>
-
+  </div>
 </div>
