@@ -6,27 +6,25 @@
      $scope.rescue = rescue
 
 
-        // Restangular.one('rescues', ).one('landing_galleries', 1).get().then(function(landing_gallery) {
-        // $scope.landing_gallery = landing_gallery;
 
         $scope.landingGalleryPicSubmit = function() {
             $scope.landingGalleryPicUpload($scope.files);
         };
 
         $scope.landingGalleryPicUpload = function (files) {
-          Restangular.one('landing_galleries', rescue.landing_gallery.id).all('landing_images').getList().then(function(landing_images) {
+          Restangular.one('rescues', slug).one('landing_galleries', rescue.landing_gallery.id).all('landing_images').getList().then(function(landing_images) {
             $scope.landing_images = landing_images;
           });
 
           for (var i = files.length - 1; i >= 0; i--)
 
             Upload.upload({
-                url: "https://rescue-site-api.herokuapp.com/api/landing_galleries/" + rescue.landing_gallery.id + "/landing_images",
+                url: "https://rescue-site-api.herokuapp.com/api/rescues/" + slug + "landing_galleries/" + rescue.landing_gallery.id + "/landing_images",
                 headers: $auth.retrieveData('auth_headers'),
                 method: 'POST',
                 data: {"landing_image[landing_image]": files[i]}
               }).then(function() {
-                  Restangular.one('landing_galleries', rescue.landing_gallery.id).all('landing_images').getList().then(function(landing_images) {
+                  Restangular.one('rescues', slug).one('landing_galleries', rescue.landing_gallery.id).all('landing_images').getList().then(function(landing_images) {
                       $scope.landing_images = landing_images;
                   })
                 }, function (response) {

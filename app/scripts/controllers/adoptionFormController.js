@@ -8,7 +8,7 @@
 
     $scope.adoptionFormSent = false;
     $scope.adoptionNotice = {message: "You have a new adoption form to review. Click the link below to view the form in the admin section of your website",
-                             link: "localhost:3000/adoption-forms"};
+                             link: "rescue-site.herokuapp.com/adoption-forms"};
 
 
     $scope.clearForm = function() {
