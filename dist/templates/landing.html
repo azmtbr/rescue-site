@@ -15,7 +15,7 @@
 <div class="landing-carousel">
   <uib-carousel active='active' interval="myInterval" nowrap="false">
     <uib-slide ng-repeat="landing_image in landing_images track by landing_image.id" index="landing_image.id">
-      <img class="landing-carousel-image" ng-src="http://rescue-site-api.herokuapp.com/{{landing_image.large_url}}"/>
+      <img class="landing-carousel-image" ng-src=URL_PRODUCTION + "{{landing_image.large_url}}"/>
       <div class="carousel-caption">
       </div>
     </uib-slide>

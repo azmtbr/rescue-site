@@ -12,8 +12,8 @@
           </p>
         </div>
         <div class="animal-profile-image">
-          <a ng-href="http://rescue-site-api.herokuapp.com/{{animal.large_url}}" >
-            <img class="profile-thumbnail" ng-src="http://rescue-site-api.herokuapp.com/{{animal.medium_url}}" />
+          <a ng-href=URL_PRODUCTION + "{{animal.large_url}}" >
+            <img class="profile-thumbnail" ng-src=URL_PRODUCTION + "{{animal.medium_url}}" />
           </a>
         </div>
       </div>
@@ -52,8 +52,8 @@
 <div class="container">
   <div class="animal-gallery-card col-sm-6 col-md-4" ng-repeat="photo in photos">
     <div class="thumbnail">
-      <a ng-href="http://rescue-site-api.herokuapp.com/{{photo.large_url}}" >
-        <img class="gallery-image" ng-src="http://rescue-site-api.herokuapp.com/{{photo.medium_url}}" />
+      <a ng-href=URL_PRODUCTION + "{{photo.large_url}}" >
+        <img class="gallery-image" ng-src=URL_PRODUCTION + "{{photo.medium_url}}" />
       </a>
       <button ng-show="user.signedIn" class="gallery-image-delete" ng-click="deletePic(photo)"><i class="glyphicon glyphicon-remove"></i>Remove</button>
     </div>
