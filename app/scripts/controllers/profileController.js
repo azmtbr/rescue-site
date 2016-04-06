@@ -1,5 +1,5 @@
 (function() {
-  function profileController($scope, $auth, Upload,  Restangular, $stateParams) {
+  function profileController($scope, $auth, Upload, URL, Restangular, $stateParams) {
 
 
 
@@ -14,7 +14,7 @@
       $scope.profilePicUpload = function (file) {
 
           Upload.upload({
-              url: "https://s3.amazonaws.com/" + slug + "/animals/" + animal.slug,
+              url: URL.PRODUCTION + slug + "/animals/" + animal.slug,
               headers: $auth.retrieveData('auth_headers'),
               method: 'PATCH',
               file: file
@@ -40,7 +40,7 @@
           for (var i = files.length - 1; i >= 0; i--)
 
             Upload.upload({
-                url: "https://rescue-site-api.herokuapp.com/api/rescues/" + slug + "/galleries/" + animal.gallery_id + "/photos",
+                url: URL.PRODUCTION + slug + "/galleries/" + animal.gallery_id + "/photos",
                 headers: $auth.retrieveData('auth_headers'),
                 method: 'POST',
                 data: {"photo[gallery_image]": files[i]}
@@ -77,5 +77,5 @@
 
   angular
 		.module('rescueSite')
-		.controller('profileController', ['$scope', '$auth', 'Upload', 'Restangular', '$stateParams', profileController]);
+		.controller('profileController', ['$scope', '$auth', 'Upload', 'URL', 'Restangular', '$stateParams', profileController]);
 })();
