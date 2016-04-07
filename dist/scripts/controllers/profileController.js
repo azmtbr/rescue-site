@@ -14,11 +14,15 @@
       $scope.profilePicUpload = function (file) {
 
           Upload.upload({
+<<<<<<< HEAD
 <<<<<<< b1d2f4a489623fd92cd5ae11676b052ab2ad5210
               url: URL.PRODUCTION + slug + "/animals/" + animal.slug,
 =======
               url: "https://s3.amazonaws.com/" + slug + "/animals/" + animal.slug,
 >>>>>>> another one
+=======
+              url: URL.PRODUCTION + slug + "/animals/" + animal.slug,
+>>>>>>> caf2a2b57a4db2515e2cfa112edee5f679f3e3c0
               headers: $auth.retrieveData('auth_headers'),
               method: 'PATCH',
               file: file

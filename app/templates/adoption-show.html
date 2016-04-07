@@ -17,7 +17,7 @@
               <button ng-click="printTo(adoption)" ng-show="!isCollapsed" class="btn btn-default print-button"><span class="glyphicon glyphicon-print" aria-label="Print"></span></button>
             </div>
           </div>
-          <img class="panel-image col-sm-4" ng-src="http://localhost:4000/{{adoption.animal.thumbnail_url}}" height="154" width="auto" />
+          <img class="panel-image col-sm-4" ng-src="http://rescue-site-api.herokuapp.com/{{adoption.animal.thumbnail_url}}" height="154" width="auto" />
         </div>
       </div>
     <div uib-collapse="isCollapsed">
