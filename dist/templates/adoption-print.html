@@ -1,0 +1,56 @@
+<div class="container print-page-preview" onload="window.print()">
+  <div class="page-header print-page-header">
+    <h2>{{adoption.animal.name}} <small class="print-small-text">Form recieved: {{adoption.created_at | date:'MMMM d, y'}}</small><img class="print-header-logo" src="/assets/images/fkr-logo.jpg" height="75" width="auto" /></h2>
+  </div>
+
+  <div class="print-button">
+    <button class="btn btn-default" ng-click="printForm()">Print Form</button>
+  </div>
+
+  <div class="print-page-content">
+    <li class="list-group-item">
+      <h4 class="list-group-item-heading">Adopter Name</h4>
+      <p class="list-group-item-text">{{ adoption.name }}</p>
+    </li>
+    <li class="list-group-item">
+      <h4 class="list-group-item-heading">Adopter Email</h4>
+      <p class="list-group-item-text">{{ adoption.email }}</p>
+    </li>
+    <li class="list-group-item">
+      <h4 class="list-group-item-heading">Over 18</h4>
+      <p class="list-group-item-text">{{ adoption.age }}</p>
+    </li>
+    <li class="list-group-item">
+      <h4 class="list-group-item-heading">Street Address</h4>
+      <p class="list-group-item-text">{{ adoption.street_address }}</p>
+    </li>
+    <li class="list-group-item">
+      <h4 class="list-group-item-heading">Mailing Address</h4>
+      <p class="list-group-item-text">{{ adoption.mailing_address }}</p>
+    </li>
+    <li class="list-group-item">
+      <h4 class="list-group-item-heading">City</h4>
+      <p class="list-group-item-text">{{ adoption.city }}</p>
+    </li>
+    <li class="list-group-item">
+      <h4 class="list-group-item-heading">State</h4>
+      <p class="list-group-item-text">{{ adoption.state }}</p>
+    </li>
+    <li class="list-group-item">
+      <h4 class="list-group-item-heading">Postal Code</h4>
+      <p class="list-group-item-text">{{ adoption.postal_code }}</p>
+    </li>
+    <li class="list-group-item">
+      <h4 class="list-group-item-heading">Home Phone</h4>
+      <p class="list-group-item-text">{{ adoption.home_phone }}</p>
+    </li>
+    <li class="list-group-item">
+      <h4 class="list-group-item-heading">Cell Phone</h4>
+      <p class="list-group-item-text">{{ adoption.cell_phone }}</p>
+    </li>
+    <li class="list-group-item">
+      <h4 class="list-group-item-heading">Work Phone</h4>
+      <p class="list-group-item-text">{{ adoption.work_phone }}</p>
+    </li>
+  </div>
+</div>

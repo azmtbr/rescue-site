@@ -1,0 +1,15 @@
+<div class="container page-content animal-listing-page">
+  <div class="animal-listing-card col-sm-6 col-md-4 " ng-repeat="animal in animals">
+    <div class="thumbnail">
+        <img class="profile-thumbnail" ng-src="http://rescue-site-api.herokuapp.com/{{animal.medium_url}}" />
+        <div class="caption">
+          <h3>{{animal.name}}</h3>
+          <p>These are some words about the animal that will be a quick bio as {{animal.short_bio}}</p>
+          <p>
+            <a ui-sref="profile({slug: animal.slug})" class="btn btn-default" role="button">View Profile</a>
+            <a ui-sref="adoption({slug: animal.slug})" class="btn btn-default">Adopt {{animal.name}}</a>
+          </p>
+        </div>
+    </div>
+  </div>
+</div>

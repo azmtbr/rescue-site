@@ -77,5 +77,5 @@
 
   angular
 		.module('rescueSite')
-		.controller('profileController', ['$scope', '$auth', 'Upload', 'URL', 'Restangular', '$stateParams', profileController]);
+		.controller('profileController', ['$scope', '$auth', 'Upload', 'Restangular', '$stateParams', profileController]);
 })();
