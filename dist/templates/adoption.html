@@ -9,7 +9,7 @@
         <p>Sex: {{animal.sex}}</p>
         <p>Age: {{animal.dob}}</p>
       </div>
-      <img ng-src="http://rescue-site-api.herokuapp.com/{{animal.thumbnail_url}}" class="col-sm-4" />
+      <img ng-src="{{animal.thumbnail_url}}" class="col-sm-4" />
 
       <div class="form-sent-confirmation col-sm-8" ng-show="adoptionFormSent">
         <div class="alert alert-success" role="alert">

@@ -1,5 +1,5 @@
 (function() {
-  function landingController($scope, $auth, Upload, URL, Restangular, $stateParams) {
+  function landingController($scope, $auth, Upload, Restangular, $stateParams) {
 
 
    Restangular.one('rescues', slug).get().then(function(rescue) {
@@ -62,5 +62,5 @@
 
   angular
 		.module('rescueSite')
-		.controller('landingController', ['$scope', '$auth', 'Upload', 'URL', 'Restangular', '$stateParams', landingController]);
+		.controller('landingController', ['$scope', '$auth', 'Upload', 'Restangular', '$stateParams', landingController]);
 })();
