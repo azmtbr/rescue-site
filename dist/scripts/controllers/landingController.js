@@ -1,5 +1,5 @@
 (function() {
-  function landingController($scope, $auth, Upload, Restangular, $stateParams) {
+  function landingController($scope, $auth, Upload, URL, Restangular, $stateParams) {
 
 
    Restangular.one('rescues', slug).get().then(function(rescue) {
@@ -19,7 +19,15 @@
           for (var i = files.length - 1; i >= 0; i--)
 
             Upload.upload({
+<<<<<<< HEAD
                 url: "https://rescue-site-api.herokuapp.com/api/rescues/" + slug + "/landing_galleries/" + rescue.landing_gallery.id + "/landing_images",
+=======
+<<<<<<< HEAD
+                url: URL_PRODUCTION + slug + "/landing_galleries/" + rescue.landing_gallery.id + "/landing_images",
+=======
+                url: URL.PRODUCTION + slug + "/landing_galleries/" + rescue.landing_gallery.id + "/landing_images",
+>>>>>>> caf2a2b57a4db2515e2cfa112edee5f679f3e3c0
+>>>>>>> deploy
                 headers: $auth.retrieveData('auth_headers'),
                 method: 'POST',
                 data: {"landing_image[landing_image]": files[i]}
@@ -62,5 +70,5 @@
 
   angular
 		.module('rescueSite')
-		.controller('landingController', ['$scope', '$auth', 'Upload', 'Restangular', '$stateParams', landingController]);
+		.controller('landingController', ['$scope', '$auth', 'Upload', 'URL', 'Restangular', '$stateParams', landingController]);
 })();
