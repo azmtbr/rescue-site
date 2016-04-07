@@ -19,11 +19,7 @@
           for (var i = files.length - 1; i >= 0; i--)
 
             Upload.upload({
-<<<<<<< HEAD
-                url: URL_PRODUCTION + slug + "/landing_galleries/" + rescue.landing_gallery.id + "/landing_images",
-=======
-                url: URL.PRODUCTION + slug + "/landing_galleries/" + rescue.landing_gallery.id + "/landing_images",
->>>>>>> caf2a2b57a4db2515e2cfa112edee5f679f3e3c0
+                url: "https://rescue-site-api.herokuapp.com/api/rescues/" + slug + "/landing_galleries/" + rescue.landing_gallery.id + "/landing_images",
                 headers: $auth.retrieveData('auth_headers'),
                 method: 'POST',
                 data: {"landing_image[landing_image]": files[i]}
