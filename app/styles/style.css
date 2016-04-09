@@ -8,7 +8,7 @@ h1 {
 }
 
 .page-content {
-  margin-top: 67px;
+  margin-top: 51px;
 }
 
 /*PROFILE PANEL*/
@@ -125,19 +125,27 @@ h1 {
 }
 
 .uploader-button {
-  background-color: #b3b3b3;
   font-family: raleway;
+  margin-top: 7px;
+  font-family: raleway;
+  border: 0;
+  background: #0087cc;
+  border-radius: 4px;
+  box-shadow: 0 5px 0 #006599;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 12px 20px;
+  transition: all .1s linear;
 }
 
-.uploader-button:hover,
-.uploader-button.hover {
-  background-color: #808080;
-  color: #fff;
-  box-shadow: inset 0 0 0 0.5px #27496d,0 4px 10px #193047;
-}
 
 .uploader-button:active,
 .uploader-button.active {
+  box-shadow: 0 2px 0 #006599;
+  transform: translateY(3px);
 }
 
 
@@ -146,25 +154,50 @@ h1 {
 .gallery-image-delete {
   margin-top: 7px;
   font-family: raleway;
-  background-color: #b3b3b3;
-  text-shadow: -1px 1px #808080;
-}
-
-.gallery-image-delete:hover,
-.gallery-image-delete.hover {
-  background-color: #808080;
+  border: 0;
+  background: #0087cc;
+  border-radius: 4px;
+  box-shadow: 0 5px 0 #006599;
   color: #fff;
-  text-shadow: -1px 1px #4d4d4d;
-  box-shadow: inset 0 0 0 0.5px #27496d,0 4px 10px #193047;
+  cursor: pointer;
+  font: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 12px 20px;
+  transition: all .1s linear;
 }
 
-/*CAROUSEL*/
-.landing-carousel {
-  height: 500px;
+.gallery-image-delete:active,
+.gallery-image-delete.active {
+  box-shadow: 0 2px 0 #006599;
+  transform: translateY(3px);
 }
 
-.landing-carousel-image {
-  max-height: 500px;
+/*SLIDER*/
+.slide.ng-hide-add,
+.slide.ng-hide-remove {
+  -webkit-transition: all ease-in-out 1.0s;
+  -moz-transition: all ease-in-out 1.0s;
+  -o-transition: all ease-in-out 1.0s;
+  transition: all ease-in-out 1.0s;
+  display: block!important;
+}
+.slide.ng-hide-add.ng-hide-add-active,
+.slide.ng-hide-remove {
+  opacity: 0;
+}
+.slide.ng-hide-add,
+.slide.ng-hide-remove.ng-hide-remove-active {
+  opacity: 1;
+}
+
+.slider {
+}
+.slide>img {
+  height: auto;
+  width: 100%;
+}
+.arrows {
 }
 
 

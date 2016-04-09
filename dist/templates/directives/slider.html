@@ -1,0 +1,13 @@
+<div class="slider">
+  <div class="slide" ng-repeat="landing_image in landing_images" ng-show="landing_image.visible">
+    <img ng-src="{{landing_image.large_url}}" />
+  </div>
+  <div class="arrows">
+    <a href="#" ng-click="prev()">
+      <i class="ion-chevron-left"></i>
+    </a>
+    <a href="#" ng-click="next()">
+      <i class="ion-chevron-right"></i>
+    </a>
+  </div>
+</div>

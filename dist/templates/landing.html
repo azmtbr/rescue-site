@@ -1,30 +1,8 @@
 <div class="container page-content">
 
-
-
-
-<!-- CAROUSEL -->
-<div class="container slider">
-  <a class="landing-slider-prev" ng-click="prevSlide()" href><i class="ion-chevron-left"></i></a>
-  <img ng-hide="!isCurrentSlideIndex($index)" ng-repeat="landing_image in landing_images"
-       class="slide" ng-src="{{landing_image.large_url}}"/>
-  <a class="landing-slider-next" ng-click="nextSlide()" href><i class="ion-chevron-right"></i></a>
-  <nav class="slider-nav">
-    <div class="slider-nav-wrapper">
-      <ul>
-        <span class="slider-slide-selector" ng-repeat="landing_image in landing_images">
-          <a href="#" ng-class"{'active':isCurrentSlideIndex($index)}"
-             ng-click="setCurrentSlideIndex($index);"><i class="ion-ios-circle-filled"></i>
-          </a>
-          <button ng-show="user.signedIn" class="gallery-image-delete" ng-click="deletePic(landing_image)"><i class="glyphicon glyphicon-remove"></i>Remove</button>
-        </span>
-      </ul>
-    </div>
-  </nav>
+<div class="slider-container">
+  <slider bind="landing_images"></slider>
 </div>
-
-
-
 
   <div ng-show="user.signedIn" class="panel panel-default landing-gallery-uploader-panel">
     <div class="panel-heading landing-gallery-uploader-heading" role="tab">
