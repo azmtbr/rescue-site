@@ -1,11 +1,11 @@
 (function () {
 		function config($stateProvider, $locationProvider, $authProvider, RestangularProvider) {
     window.slug = location.hostname.substring(0,location.hostname.indexOf("."));
-		RestangularProvider.setBaseUrl('https://rescue-site.herokuapp.com/api');
+		RestangularProvider.setBaseUrl('https://rescue-site-api.herokuapp.com/api');
 
 
 		$authProvider.configure({
-			apiUrl: 'https://rescue-site.herokuapp.com/api'
+			apiUrl: 'https://rescue-site-api.herokuapp.com/api'
 		});
 
 
