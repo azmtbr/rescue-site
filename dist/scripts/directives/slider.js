@@ -9,7 +9,7 @@
   				landing_images: '=bind'
 						},
 			link: function (scope, element, attrs){
-        scope.landing_images = []
+
 
         Restangular.one('rescues', slug).get().then(function(rescue) {
           scope.rescue = rescue
@@ -17,9 +17,19 @@
           Restangular.one('rescues', slug).one('landing_galleries', rescue.landing_gallery.id).all('landing_images').getList().then(function(landing_images) {
             scope.landing_images = landing_images;
           });
-        });
 
-        scope.currentIndex = 0; // Initially the index is at the first image
+
+
+				scope.landing_images[scope.currentIndex] = 0; // starts slider with first image in array
+
+				scope.setCurrentSlideIndex = function(index) {
+		       scope.currentIndex = index;
+	      };
+
+		    scope.isCurrentSlideIndex = function(index) {
+		       return scope.currentIndex === index;
+		    };
+
 
         scope.next = function() {
         scope.currentIndex < scope.landing_images.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
@@ -29,13 +39,24 @@
         scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.landing_images.length - 1;
         };
 
-        scope.$watch('currentIndex', function() {
-          scope.landing_images.forEach(function(image) {
-            image.visible = false; // make every image invisible
-          });
 
-          scope.landing_images[scope.currentIndex].visible = true; // make the current image visible
-        });
+				scope.userSignedIn = true
+
+				scope.deletePic = function(landing_image) {
+	        Restangular.one('rescues', slug).one('landing_galleries', rescue.landing_gallery.id).one('landing_images', landing_image.id).remove().then(function(){
+	          scope.landing_images = _.without(scope.landing_images, landing_image);
+	        });
+	      };
+
+
+	        scope.$watch('currentIndex', function() {
+	          scope.landing_images.forEach(function(landing_image) {
+	            landing_image.visible = false; // make every image invisible
+	          });
+
+	          scope.landing_images[scope.currentIndex].visible = true; // make the current image visible
+	        });
+				});
 
         // Slider Animation
         var timer;

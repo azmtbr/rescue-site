@@ -8,7 +8,7 @@ h1 {
 }
 
 .page-content {
-  margin-top: 51px;
+  margin-top: 77px;
 }
 
 /*PROFILE PANEL*/
@@ -155,9 +155,9 @@ h1 {
   margin-top: 7px;
   font-family: raleway;
   border: 0;
-  background: #0087cc;
+  background: #990000;
   border-radius: 4px;
-  box-shadow: 0 5px 0 #006599;
+  box-shadow: 0 5px 0 #4d0000;
   color: #fff;
   cursor: pointer;
   font: inherit;
@@ -173,13 +173,26 @@ h1 {
   transform: translateY(3px);
 }
 
+.landing-image-thumb {
+  margin-bottom: 15px;
+}
+
+.landing-image-delete-container {
+
+}
+
+.landing-gallery-thumb-container>ul {
+  padding-left: 0px;
+  width: 92%;
+}
+
 /*SLIDER*/
 .slide.ng-hide-add,
 .slide.ng-hide-remove {
-  -webkit-transition: all ease-in-out 1.0s;
-  -moz-transition: all ease-in-out 1.0s;
-  -o-transition: all ease-in-out 1.0s;
-  transition: all ease-in-out 1.0s;
+  -webkit-transition: all ease-in-out 1.5s;
+  -moz-transition: all ease-in-out 1.5s;
+  -o-transition: all ease-in-out 1.5s;
+  transition: none;
   display: block!important;
 }
 .slide.ng-hide-add.ng-hide-add-active,
@@ -193,15 +206,21 @@ h1 {
 
 .slider {
 }
+
 .slide>img {
   height: auto;
-  width: 100%;
+  max-width: 92%;
+  margin-bottom: 17px;
+  border-bottom: 5px solid lightgrey;
 }
-.arrows {
+.ion-chevron-right,
+.ion-chevron-left {
+  font-size: 3em;
+  color: dimgrey;
 }
 
 
-
+/*SMALL SCREEN*/
 @media screen and (max-width: 767px) {
   .google-map {
     height: 277px;
@@ -235,6 +254,27 @@ h1 {
   .uploader-action-button {
     float: left;
     margin-top: 3px;
+  }
+
+  .ion-chevron-right,
+  .ion-chevron-left {
+    font-size: 1em;
+    color: dimgrey;
+  }
+
+  .landing-image-thumb {
+    max-width: 100px;
+    margin-bottom: 5px;
+  }
+
+  .gallery-image-delete {
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-bottom: 10px;
+    margin-left: 41px
+
   }
 }
 

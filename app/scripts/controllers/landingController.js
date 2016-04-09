@@ -18,7 +18,7 @@
           for (var i = files.length - 1; i >= 0; i--)
 
             Upload.upload({
-                url: "https://rescue-site-api.herokuapp.com/api/rescues/" + slug + "/landing_galleries/" + rescue.landing_gallery.id + "/landing_images",
+                url: "https://rescue-site.herokuapp.com/api/rescues/" + slug + "/landing_galleries/" + rescue.landing_gallery.id + "/landing_images",
                 headers: $auth.retrieveData('auth_headers'),
                 method: 'POST',
                 data: {"landing_image[landing_image]": files[i]}
@@ -40,11 +40,6 @@
         $scope.landing_images = landing_images;
       });
 
-      $scope.deletePic = function(landing_image) {
-        Restangular.one('rescues', slug).one('landing_galleries', rescue.landing_gallery.id).one('landing_images', landing_image.id).remove().then(function(){
-          $scope.landing_images = _.without($scope.landing_images, landing_image);
-        });
-      };
   })
 }
 
