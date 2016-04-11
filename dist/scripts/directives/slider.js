@@ -64,7 +64,7 @@
           timer = $timeout(function() {
             scope.next();
             timer = $timeout(sliderFunc, 3000);
-          }, 300);
+          }, 800);
         };
 
         sliderFunc();
