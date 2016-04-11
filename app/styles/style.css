@@ -163,7 +163,7 @@ h1 {
   font: inherit;
   margin: 0;
   outline: 0;
-  padding: 12px 20px;
+  padding: 4px 10px;
   transition: all .1s linear;
 }
 
@@ -173,50 +173,64 @@ h1 {
   transform: translateY(3px);
 }
 
-.landing-image-thumb {
-  margin-bottom: 15px;
-}
-
-.landing-image-delete-container {
-
-}
-
-.landing-gallery-thumb-container>ul {
-  padding-left: 0px;
-  width: 92%;
-}
 
 /*SLIDER*/
-.slide.ng-hide-add,
-.slide.ng-hide-remove {
-  -webkit-transition: all ease-in-out 1.5s;
-  -moz-transition: all ease-in-out 1.5s;
-  -o-transition: all ease-in-out 1.5s;
-  transition: none;
-  display: block!important;
+
+.slide.ng-hide-add {
+  -webkit-animation: fadeOutLeft 1.0s;
+  -moz-animation: fadeOutLeft 1.0s;
+  -o-animation: fadeOutLeft 1.0s;
+  animation: linear 1.0s;
+  display: block !important;
 }
+.slide.ng-hide-remove {
+  -webkit-animation: fadeInRight 1.0s;
+  -moz-animation: fadeInRight 1.0s;
+  -o-animation: fadeInRight 1.0s;
+  animation: fadeInRight 1.0s;
+}
+
 .slide.ng-hide-add.ng-hide-add-active,
 .slide.ng-hide-remove {
   opacity: 0;
 }
+
 .slide.ng-hide-add,
 .slide.ng-hide-remove.ng-hide-remove-active {
   opacity: 1;
 }
 
-.slider {
+.landing-gallery-image {
+  width: 100%;
 }
 
-.slide>img {
-  height: auto;
-  max-width: 92%;
-  margin-bottom: 17px;
-  border-bottom: 5px solid lightgrey;
+.landing-image-thumb {
+  display: inline;
+  max-width: 150px;
+  margin-bottom: 5px;
 }
-.ion-chevron-right,
-.ion-chevron-left {
+
+.landing-gallery-thumb-container {
+  width: 100%;
+}
+
+.ion-chevron-left{
+  display: inline;
   font-size: 3em;
   color: dimgrey;
+}
+
+.ion-chevron-right {
+  display: inline;
+  float: right;
+  font-size: 3em;
+  color: dimgrey;
+}
+
+.slide {
+  height: auto;
+  max-width: 100%;
+  margin-bottom: 17px;
 }
 
 
@@ -256,14 +270,22 @@ h1 {
     margin-top: 3px;
   }
 
-  .ion-chevron-right,
-  .ion-chevron-left {
-    font-size: 1em;
+  .ion-chevron-left{
+    display: inline;
+    font-size: 2em;
+    color: dimgrey;
+  }
+
+  .ion-chevron-right {
+    display: inline;
+    float: right;
+    font-size: 2em;
     color: dimgrey;
   }
 
   .landing-image-thumb {
-    max-width: 100px;
+    display: inline;
+    max-width: 84px;
     margin-bottom: 5px;
   }
 
@@ -273,8 +295,6 @@ h1 {
     padding-top: 1px;
     padding-bottom: 1px;
     margin-bottom: 10px;
-    margin-left: 41px
-
   }
 }
 

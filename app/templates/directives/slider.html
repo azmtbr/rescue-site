@@ -1,34 +1,23 @@
-<div class="slider well">
+<div class="slider container-fluid well">
 
-  <span class="landing-gallery-left-selector">
-    <a href="#" ng-click="prev()">
-      <i class="ion-chevron-left"></i>
-    </a>
-  </span>
-
-  <span class="slide" ng-init="landing_image[0]" ng-repeat="landing_image in landing_images track by landing_image.id" ng-show="landing_image.visible">
-    <img ng-src="{{landing_image.large_url}}" />
-  </span>
-
-  <span class="landing-gallery-right-selector">
-    <a href="#" ng-click="next()">
-      <i class="ion-chevron-right"></i>
-    </a>
-  </span>
-
-  <div class="slider-nav-wrapper">
-    <div class="landing-gallery-thumb-container container">
-      <ul>
-        <div class="slider-slide-selector" ng-repeat="landing_image in landing_images">
-          <span class="landing-thumbs">
-            <a href="#" ng-class"{'active':isCurrentSlideIndex($index)}"
-               ng-click="setCurrentSlideIndex($index);"><img class="landing-image-thumb" ng-src="{{landing_image.thumb_url}}" />
-            </a>
-            <button ng-show="userSignedIn" class="gallery-image-delete" ng-click="deletePic(landing_image)"><i class="glyphicon glyphicon-remove"></i></button>
-          </span>
-
-        </div>
-      </ul>
+    <div class="slide container" ng-repeat="landing_image in landing_images track by landing_image.id" ng-show="landing_image.visible">
+        <img class="landing-gallery-image" ng-if="isCurrentSlideIndex($index)" ng-src="{{landing_image.large_url}}" />
+        <a href="#" ng-click="prev()">
+          <i class="ion-chevron-left"></i>
+        </a>
+        <a href="#" ng-click="next()">
+          <i class="ion-chevron-right"></i>
+        </a>
     </div>
-  </div>
+
+    <div class="landing-gallery-thumb-container container">
+      <span class="landing-thumbs" ng-repeat="landing_image in landing_images">
+        <a href="#" ng-class"{'active':isCurrentSlideIndex($index)}"
+           ng-click="setCurrentSlideIndex($index);"><img class="landing-image-thumb" ng-src="{{landing_image.thumb_url}}" />
+        </a>
+        <span class="gallery-image-delete-container">
+          <button ng-show="userSignedIn" class="gallery-image-delete" ng-click="deletePic(landing_image)"><i class="glyphicon glyphicon-remove"></i></button>
+        </span>
+      </span>
+    </div>
 </div>

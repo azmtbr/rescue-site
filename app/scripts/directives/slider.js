@@ -9,7 +9,7 @@
   				landing_images: '=bind'
 						},
 			link: function (scope, element, attrs){
-
+				scope.animate = true;
 
         Restangular.one('rescues', slug).get().then(function(rescue) {
           scope.rescue = rescue
@@ -63,8 +63,8 @@
         var sliderFunc = function() {
           timer = $timeout(function() {
             scope.next();
-            timer = $timeout(sliderFunc, 5000);
-          }, 5000);
+            timer = $timeout(sliderFunc, 3000);
+          }, 300);
         };
 
         sliderFunc();
