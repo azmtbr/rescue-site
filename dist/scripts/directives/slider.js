@@ -10,7 +10,6 @@
 						},
 			link: function (scope, element, attrs){
 
-
         Restangular.one('rescues', slug).get().then(function(rescue) {
           scope.rescue = rescue
 
@@ -39,7 +38,7 @@
         scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.landing_images.length - 1;
         };
 
-
+				// MUST TAKE OUT
 				scope.userSignedIn = true
 
 				scope.deletePic = function(landing_image) {
@@ -56,15 +55,28 @@
 
 	          scope.landing_images[scope.currentIndex].visible = true; // make the current image visible
 	        });
-				});
 
+					var handleFileComplete = function(event) {
+						document.body.appendChild(event.result);
+					}
+
+					var loadGallery = function(landing_images, handleGalleryComplete) {
+						var preload = new createjs.LoadQueue();
+						preload.addEventListener('galleryLoad', handleGalleryComplete);
+						preload.loadFile(landing_images);
+					}
+
+
+
+					loadGallery();
+				});
         // Slider Animation
         var timer;
         var sliderFunc = function() {
           timer = $timeout(function() {
             scope.next();
-            timer = $timeout(sliderFunc, 5000);
-          }, 5000);
+            timer = $timeout(sliderFunc, 3000);
+          }, 3000);
         };
 
         sliderFunc();
@@ -72,7 +84,9 @@
         scope.$on('$destroy', function() {
           $timeout.cancel(timer); // when the scope is getting destroyed, cancel the timer
         });
-	     }
+
+
+			}
      }
    }
 angular

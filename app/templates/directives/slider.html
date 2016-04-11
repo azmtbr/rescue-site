@@ -7,7 +7,7 @@
   </span>
 
   <span class="slide" ng-init="landing_image[0]" ng-repeat="landing_image in landing_images track by landing_image.id" ng-show="landing_image.visible">
-    <img ng-src="{{landing_image.large_url}}" />
+    <img ng-if="isCurrentSlideIndex($index)" ng-src="{{landing_image.large_url}}" />
   </span>
 
   <span class="landing-gallery-right-selector">

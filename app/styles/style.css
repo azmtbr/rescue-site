@@ -192,7 +192,7 @@ h1 {
   -webkit-transition: all ease-in-out 1.5s;
   -moz-transition: all ease-in-out 1.5s;
   -o-transition: all ease-in-out 1.5s;
-  transition: none;
+  transition: all ease-in-out 1.0s;
   display: block!important;
 }
 .slide.ng-hide-add.ng-hide-add-active,
