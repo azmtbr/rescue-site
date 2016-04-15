@@ -1,4 +1,4 @@
-
+<!--
 <div class="container slider-container">
   <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
     <uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
@@ -9,6 +9,17 @@
       </div>
     </uib-slide>
   </uib-carousel>
+</div> -->
+
+<!-- TEMPORARY BANNER -->
+<div id="main" class="banner">
+
+  <ul class="flip list-inline">
+    <li ng-repeat="slide in slides">
+      <img ng-src="{{slide.large_url}}">
+    </li>
+  </ul>
+
 </div>
 
 <div class="container page-content">
@@ -35,9 +46,7 @@
       <div class="landing-gallery-thumb-container container">
         <span class="landing-thumbs" ng-repeat="slide in slides">
           <img class="landing-image-thumb" ng-src="{{slide.thumb_url}}" />
-          <span class="gallery-image-delete-container">
-            <button ng-show="user.signedIn" class="gallery-image-delete" ng-click="deletePic(slide)"><i class="glyphicon glyphicon-remove"></i></button>
-          </span>
+          <button ng-show="user.signedIn" class="gallery-image-delete" ng-click="deletePic(slide)"><i class="glyphicon glyphicon-remove"></i></button>
         </span>
       </div>
     </div>

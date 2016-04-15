@@ -242,6 +242,53 @@ h1 {
   margin-bottom: 17px;
 }
 
+/*temp banner*/
+
+.list-inline {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.banner.ng-scope {
+  margin-top: 79px;
+  text-align: center;
+}
+
+body > ui-view > div.banner.ng-scope > ul {
+  max-height: 200px;
+  position: relative;
+  width: auto;
+  padding: 0;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.banner.ng-scope > ul > li {
+  position: relative;
+  height: 200px;
+  padding: 0;
+}
+
+.banner.ng-scope > ul > li > img {
+  float: left;
+  margin-right: 0px;
+  border-radius: 5px;
+  max-height: 200px;
+}
+
+.banner.ng-scope > ul > li > h2 {
+  margin-top: 25px;
+  font: bold 30px Helvetica, Arila, sans-serif;
+  color: #000;
+}
+
+.banner.ng-scope > ul > li > p {
+  font: 13px/1.5 Georgia, Times, Serif;
+  color: #757575;
+}
+
+
 /*Landing Content*/
 
 .selling-points {
