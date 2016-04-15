@@ -1,23 +1,9 @@
-<div class="slider container-fluid well">
-
-    <div class="slide container" ng-repeat="landing_image in landing_images track by landing_image.id" ng-show="landing_image.visible">
-        <img class="landing-gallery-image" ng-if="isCurrentSlideIndex($index)" ng-src="{{landing_image.large_url}}" />
-        <a href="#" ng-click="prev()">
-          <i class="ion-chevron-left"></i>
-        </a>
-        <a href="#" ng-click="next()">
-          <i class="ion-chevron-right"></i>
-        </a>
-    </div>
-
-    <div class="landing-gallery-thumb-container container">
-      <span class="landing-thumbs" ng-repeat="landing_image in landing_images">
-        <a href="#" ng-class"{'active':isCurrentSlideIndex($index)}"
-           ng-click="setCurrentSlideIndex($index);"><img class="landing-image-thumb" ng-src="{{landing_image.thumb_url}}" />
-        </a>
-        <span class="gallery-image-delete-container">
-          <button ng-show="userSignedIn" class="gallery-image-delete" ng-click="deletePic(landing_image)"><i class="glyphicon glyphicon-remove"></i></button>
-        </span>
-      </span>
-    </div>
-</div>
+    <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+      <uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+        <img ng-src="{{slide.image}}" style="margin:auto;">
+        <div class="carousel-caption">
+          <h4>Slide {{slide.id}}</h4>
+          <p>{{slide.text}}</p>
+        </div>
+      </uib-slide>
+    </uib-carousel>

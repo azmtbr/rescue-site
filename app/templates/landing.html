@@ -1,10 +1,18 @@
-<div class="container page-content">
 
-<div class="slider-container">
-  <slider bind="landing_images"></slider>
+<div class="container slider-container">
+  <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+    <uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+      <img ng-src="{{slide.large_url}}" style="margin:auto;">
+      <div class="carousel-caption">
+        <h4>Adopt Today</h4>
+        <p>Please help these animals find their forever homes</p>
+      </div>
+    </uib-slide>
+  </uib-carousel>
 </div>
 
-  <div ng-show="user.signedIn" class="panel panel-default landing-gallery-uploader-panel">
+<div class="container page-content">
+  <div ng-cloak ng-show="user.signedIn" class="panel panel-default landing-gallery-uploader-panel">
     <div class="panel-heading landing-gallery-uploader-heading" role="tab">
       <h4 class="panel-title landing-gallery-uploader-title">
       <button class="uploader-button" type="button" data-toggle="collapse" data-target="#landing-gallery-uploader-collapse">
@@ -23,7 +31,33 @@
             <button class="btn btn-default" type="submit" ng-click="landingGalleryPicSubmit()">Upload</button>
         </form>
       </div>
+
+      <div class="landing-gallery-thumb-container container">
+        <span class="landing-thumbs" ng-repeat="slide in slides">
+          <img class="landing-image-thumb" ng-src="{{slide.thumb_url}}" />
+          <span class="gallery-image-delete-container">
+            <button ng-show="user.signedIn" class="gallery-image-delete" ng-click="deletePic(slide)"><i class="glyphicon glyphicon-remove"></i></button>
+          </span>
+        </span>
+      </div>
     </div>
   </div>
 
+  <section class="landing-points container clearfix">
+     <div class="point column third">
+         <span class="ion-image"></span>
+         <h5 class="point-title">Help These Animals</h5>
+         <p class="point-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+     </div>
+     <div class="point column third">
+         <span class="ion-image"></span>
+         <h5 class="point-title">Adopt Today</h5>
+         <p class="point-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+     </div>
+     <div class="point column third">
+         <span class="ion-image"></span>
+         <h5 class="point-title">Support Our Rescue</h5>
+         <p class="point-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+     </div>
+ </section>
 </div>

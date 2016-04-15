@@ -4,13 +4,8 @@
     <meta charset="UTF-8">
     <title>Rescue site</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-touch/1.5.3/angular-touch.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.2/angular-animate.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css" />
     <link rel="stylesheet" href="/styles/style.css" media="screen">
     <link rel="stylesheet" href="/styles/print.css" media="print">
 </head>
@@ -23,7 +18,7 @@
             <span class="glyphicon glyphicon-menu-hamburger"></span>
           </button>
           <h1 class="navbar-brand">
-            <a href="/">Fearless Kitties</a>
+            <a href="/">My Rescue Site</a>
             <small ng-cloak ng-show="user.signedIn">Admin: {{user.email}}</small>
           </h1>
         </div>
@@ -52,6 +47,10 @@
       </div>
     </div>
     <ui-view></ui-view>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-touch/1.5.3/angular-touch.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.2/angular-animate.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/restangular/1.5.2/restangular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
@@ -70,6 +69,5 @@
     <script src="/scripts/controllers/contactController.js"></script>
     <script src="/scripts/controllers/adoptionShowController.js"></script>
     <script src="/scripts/controllers/adminController.js"></script>
-    <script src="/scripts/directives/slider.js"></script>
 </body>
 </html>
