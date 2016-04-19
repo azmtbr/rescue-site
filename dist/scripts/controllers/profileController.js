@@ -7,6 +7,16 @@
       $scope.animal = animal;
 
 
+      $scope.updateProfile = function() {
+        Restangular.one('rescues', slug).one('animals', $stateParams['slug']).patch({
+          breed: animal.breed,
+          sex: animal.sex,
+          dob: animal.dob,
+          name: animal.name
+        });
+      }
+
+
       $scope.profilePicSubmit = function() {
           $scope.profilePicUpload($scope.file);
       };
@@ -14,7 +24,7 @@
       $scope.profilePicUpload = function (file) {
 
           Upload.upload({
-              url: "https://rescue-site-api.herokuapp.com/api/rescues/" + slug + "/animals/" + animal.slug,
+              url: "http://127.0.0.1:4000/api/rescues/" + slug + "/animals/" + animal.slug,
               headers: $auth.retrieveData('auth_headers'),
               method: 'PATCH',
               file: file
@@ -40,7 +50,7 @@
           for (var i = files.length - 1; i >= 0; i--)
 
             Upload.upload({
-                url: "https://rescue-site-api.herokuapp.com/api/rescues/" + slug + "/galleries/" + animal.gallery_id + "/photos",
+                url: "http://127.0.0.1:4000/api/rescues/" + slug + "/galleries/" + animal.gallery_id + "/photos",
                 headers: $auth.retrieveData('auth_headers'),
                 method: 'POST',
                 data: {"photo[gallery_image]": files[i]}

@@ -21,29 +21,65 @@
     <ul class="list-group animal-profile-stats">
       <li class="list-group-item">Breed: {{ animal.breed }}</li>
       <li class="list-group-item">Sex: {{ animal.sex }}</li>
-      <li class="list-group-item">DOB: {{ animal.dob }}</li>
+      <li class="list-group-item">Birthday: {{ animal.dob }}</li>
     </ul>
   </div>
 
 
 <!-- Profile Uploader -->
-<div ng-show="user.signedIn" class="panel panel-default profile-uploader-panel">
-  <div class="panel-heading profile-uploader-heading" role="tab">
-    <h4 class="panel-title profile-uploader-title">
-    <button class="uploader-button" type="button" data-toggle="collapse" data-target="#profile-uploader-collapse">
-      Update Profile Pic
-    </button>
+<div ng-show="user.signedIn" class="panel panel-default profile-change-panel">
+  <div class="panel-heading profile-change-heading" role="tab">
+    <h4 class="panel-title profile-change-title">
+      <button class="uploader-button" type="button" data-toggle="collapse" data-target="#profile-change-panel-collapse">
+        Update {{ animal.name }}'s Profile
+      </button>
     </h4>
   </div>
-  <div id="profile-uploader-collapse" class="panel-collapse collapse" role="tabpanel">
-    <div class="panel-body profile-uploader-body">
-      <form name="form">
-        <input type="file" class="btn btn-default" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
-                ngf-accept="'image/*'" ngf-max-size="20MB">Select</input>
-        <button class="btn btn-default" type="submit" ng-click="profilePicSubmit()">Upload</button>
-      </form>
+
+  <div id="profile-change-panel-collapse" class="panel-collapse collapse profile-uploader-panel" role="tabpanel">
+    <div class="container profile-change-form">
+      <div class="form-group">
+        <label for="name-update">Name</label>
+        <input class="form-control" id="name-update" ng-model="animal.name" />
+      </div>
+      <div class="form-group">
+        <label for="breed-update">Breed</label>
+        <input class="form-control" id="breed-update" ng-model="animal.breed" />
+      </div>
+      <div class="form-group">
+        <label for="sex-update">Sex</label>
+        <input class="form-control" id="sex-update" ng-model="animal.sex" />
+      </div>
+      <div class="form-group">
+        <label for="dob-update">Date of Birth (YYYY-MM-DD)</label>
+        <input class="form-control" id="dob-update" ng-model="animal.dob" />
+      </div>
+
+
+      <button class="btn btn-info profile-change-button" type="button" ng-click="updateProfile()">
+        Save Profile
+      </button>
+    </div>
+
+
+      <div class="panel-heading profile-uploader-heading" role="tab">
+        <h4 class="panel-title profile-uploader-title">
+        <button class="uploader-button" type="button" data-toggle="collapse" data-target="#profile-uploader-collapse">
+          Update Profile Pic
+        </button>
+        </h4>
+      </div>
+      <div id="profile-uploader-collapse" class="panel-collapse collapse" role="tabpanel">
+        <div class="panel-body profile-uploader-body">
+          <form name="form">
+            <input type="file" class="btn btn-default" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+                    ngf-accept="'image/*'" ngf-max-size="20MB">Select</input>
+            <button class="btn btn-default" type="submit" ng-click="profilePicSubmit()">Upload</button>
+          </form>
+        </div>
     </div>
   </div>
+
 </div>
 
 
@@ -65,7 +101,7 @@
   <div class="panel-heading gallery-uploader-heading" role="tab">
     <h4 class="panel-title gallery-uploader-title">
     <button class="uploader-button" type="button" data-toggle="collapse" data-target="#gallery-uploader-collapse">
-      Update Gallery
+      Update {{ animal.name }}'s Gallery
     </button>
     </h4>
   </div>

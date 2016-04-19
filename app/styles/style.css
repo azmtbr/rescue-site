@@ -8,7 +8,7 @@ h1 {
 }
 
 .page-content {
-  margin-top: 51px;
+  margin-top: 71px;
 }
 
 /*PROFILE PANEL*/
@@ -148,6 +148,10 @@ h1 {
   transform: translateY(3px);
 }
 
+.form-group {
+  max-width: 95%;
+}
+
 
 /*GALLERY THUMBNAIL*/
 
@@ -171,75 +175,6 @@ h1 {
 .gallery-image-delete.active {
   box-shadow: 0 2px 0 #006599;
   transform: translateY(3px);
-}
-
-
-/*SLIDER*/
-
-.slider-container {
-  height: 364px;
-  margin-top: 51px;
-}
-
-.item {
-  max-height: 364px;
-}
-
-.slide.ng-hide-add {
-  -webkit-animation: fadeOutLeft 1.0s;
-  -moz-animation: fadeOutLeft 1.0s;
-  -o-animation: fadeOutLeft 1.0s;
-  animation: linear 1.0s;
-  display: block !important;
-}
-.slide.ng-hide-remove {
-  -webkit-animation: fadeInRight 1.0s;
-  -moz-animation: fadeInRight 1.0s;
-  -o-animation: fadeInRight 1.0s;
-  animation: fadeInRight 1.0s;
-}
-
-.slide.ng-hide-add.ng-hide-add-active,
-.slide.ng-hide-remove {
-  opacity: 0;
-}
-
-.slide.ng-hide-add,
-.slide.ng-hide-remove.ng-hide-remove-active {
-  opacity: 1;
-}
-
-.landing-gallery-image {
-  width: 100%;
-}
-
-.landing-image-thumb {
-  display: inline;
-  max-width: 150px;
-  margin-bottom: 5px;
-}
-
-.landing-gallery-thumb-container {
-  width: 100%;
-}
-
-.ion-chevron-left{
-  display: inline;
-  font-size: 3em;
-  color: dimgrey;
-}
-
-.ion-chevron-right {
-  display: inline;
-  float: right;
-  font-size: 3em;
-  color: dimgrey;
-}
-
-.slide {
-  height: auto;
-  max-width: 100%;
-  margin-bottom: 17px;
 }
 
 /*temp banner*/

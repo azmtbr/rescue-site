@@ -1,20 +1,9 @@
-<!--
-<div class="container slider-container">
-  <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-    <uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
-      <img ng-src="{{slide.large_url}}" style="margin:auto;">
-      <div class="carousel-caption">
-        <h4>Adopt Today</h4>
-        <p>Please help these animals find their forever homes</p>
-      </div>
-    </uib-slide>
-  </uib-carousel>
-</div> -->
 
-<!-- TEMPORARY BANNER -->
+
+<!-- BANNER -->
 <div id="main" class="banner">
 
-  <ul class="flip list-inline">
+  <ul class="list-inline">
     <li ng-repeat="slide in slides">
       <img ng-src="{{slide.large_url}}">
     </li>
