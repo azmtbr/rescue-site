@@ -12,6 +12,10 @@ h1 {
 }
 
 /*PROFILE PANEL*/
+.thumbnail {
+  text-align: center;
+}
+
 .panel-body {
   margin-left: 10px;
   margin-right: 10px;
@@ -155,20 +159,9 @@ h1 {
 
 /*GALLERY THUMBNAIL*/
 
-.gallery-image-delete {
+.gallery-image-delete,
+.set-main-photo {
   margin-top: 7px;
-  font-family: raleway;
-  border: 0;
-  background: #990000;
-  border-radius: 4px;
-  box-shadow: 0 5px 0 #4d0000;
-  color: #fff;
-  cursor: pointer;
-  font: inherit;
-  margin: 0;
-  outline: 0;
-  padding: 4px 10px;
-  transition: all .1s linear;
 }
 
 .gallery-image-delete:active,

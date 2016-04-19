@@ -71,6 +71,17 @@
 
       Restangular.one('rescues', slug).one('galleries', animal.gallery_id).all('photos').getList().then(function(photos) {
         $scope.photos = photos;
+
+        $scope.setAsMainPhoto = function(photo) {
+          Restangular.one('rescues', slug).one('galleries', animal.gallery_id).one('photos', photo.id).get().then(function() {
+            var index = $scope.photos.indexOf(photo);
+            if (index > -1) {
+              $scope.photos.splice(index, 1)
+            }
+            $scope.photos.unshift(photo);
+            $scope.photos.indexOf(photo).put();
+          });
+        }
       });
 
       $scope.deletePic = function(photo) {
