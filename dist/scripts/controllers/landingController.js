@@ -42,8 +42,7 @@
       Restangular.one('rescues', slug).one('landing_galleries', rescue.landing_gallery.id).all('landing_images').getList().then(function(landing_images) {
         $timeout(function() {
           $scope.slides = landing_images;
-          // $scope.slideIndex = landing_images.indexOf(0)
-        }, 800);
+        }, 500);
       });
 
       $scope.deletePic = function(landing_image) {
