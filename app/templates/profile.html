@@ -55,10 +55,16 @@
         <input class="form-control" id="dob-update" ng-model="animal.dob" />
       </div>
 
-
-      <button class="btn btn-info profile-change-button" type="button" ng-click="updateProfile()">
-        Save Profile
-      </button>
+      <div class="col-sm-4">
+        <button class="btn btn-info profile-change-button" type="button" ng-click="updateProfile(animal)">
+          Save Profile
+        </button>
+      </div>
+      <div class="animal-updated-confirmation col-sm-8" ng-show="animalUpdated">
+        <div class="alert alert-success" role="alert">
+          <strong>{{animal.name}}'s profile updated</strong>
+        </div>
+      </div>
     </div>
 
 
