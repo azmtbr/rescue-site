@@ -44,15 +44,20 @@ h1 {
 .profile-thumbnail {
   max-height: 150px;
   width: auto;
+  border-radius: 8px;
+  box-shadow: 1px 1px 1px 1px grey;
 }
 
 .animal-profile-description {
   display: inline-block;
   max-width: 389px;
+  float: left;
+  margin-top: 38px;
 }
 
 .animal-profile-image {
   display: inline-block;
+  float: right;
 }
 
 .gallery-image {
@@ -103,7 +108,16 @@ h1 {
   font-family: Verdana, Geneva, sans-serif;
 }
 
-/*FLEXBOX FOR LISTING PAGE*/
+/*LISTING PAGE*/
+
+.thumbnail {
+  padding-top: 11px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  background-color: #ddd;
+  box-shadow: 1px 1px 1px 1px grey;
+}
+
 .animal-listing-page {
   display: flex;
   flex-direction: row;
@@ -175,7 +189,44 @@ h1 {
   transform: translateY(3px);
 }
 
-/*temp banner*/
+/* Adoption form */
+
+.adoption-form {
+  margin-bottom: 57px
+}
+
+.adoption-form-image {
+  max-height: 150px;
+  float: right;
+  margin-right: 70px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 1px 1px grey;
+}
+
+.adoption-form-panel-info {
+  margin-top: 31px;
+  text-align: center;
+}
+
+.adoption-form-panel-title {
+  font-size: 2.6em;
+  font-family: Raleway;
+}
+
+.adoption-form-panel-heading {
+  border-bottom: 3px solid grey;
+  margin-left: 50px;
+  margin-right: 50px;
+  text-align: center;
+}
+
+/*Landing Content*/
+
+
+/*landing banner*/
+.banner {
+  box-shadow: 1px 1px 1px 1px grey;
+}
 
 .list-inline {
   overflow-x: scroll;
@@ -206,7 +257,6 @@ body > ui-view > div.banner.ng-scope > ul {
 .banner.ng-scope > ul > li > img {
   float: left;
   margin-right: 0px;
-  border-radius: 5px;
   max-height: 200px;
 }
 
@@ -221,9 +271,52 @@ body > ui-view > div.banner.ng-scope > ul {
   color: #757575;
 }
 
+/* PAYPAL PAYMENT FORM */
 
-/*Landing Content*/
+.jumbotron {
+  padding-top: 5px;
+  padding-bottom: 18px;
+}
 
+.jumbotron p {
+  font-size: 15px;
+  wi
+}
+
+.pp-form	{ margin: 0px; }
+
+.pp-input	{ width: 130px; margin: 3px 0px 3px 0px; }
+
+.pp-textarea	{ width: 130px; margin: 3px 0px 3px 0px; }
+
+.pp-button 	{ width: 134px; margin: 3px 0px 3px 0px; }
+
+.badge-container	{
+		float: left;
+		margin: 20px auto 0px 0px;
+		}
+
+.pp-canvasarea	{
+    width: 100%;
+		background-color: #F0F0F0;
+		border: #D4D4D4 1px solid;
+		display: inline-block;
+		*display: inline; zoom: 1; /* FOR IE7-8 */
+		padding: 6px;
+		}
+
+.pp-formbox	{
+		font: normal 13px arial, sans-serif;
+		float: left;
+		padding: 0px 10px 0px 0px;
+		}
+
+
+
+.pp-clear-float	{ height: 1px; clear: both; }
+
+
+/* Selling Points */
 .selling-points {
   position: relative;
 }
@@ -238,13 +331,19 @@ body > ui-view > div.banner.ng-scope > ul {
   transform: scaleX(0.9) translateY(3rem);
 }
 
-.point .point-title {
-  font-size: 1.25rem;
+.point .point-description {
+  width: 100%;
 }
 
-.ion-image {
-  color: rgb(233,50,117);
-  font-size: 5rem;
+.point .point-title {
+  font-size: 2.25rem;
+}
+
+.landing-third-image {
+  width: 90%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 1px grey;
 }
 
 @media (min-width: 64rem) {

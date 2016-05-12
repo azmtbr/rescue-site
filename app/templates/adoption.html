@@ -1,15 +1,15 @@
 <div class="container page-content">
-  <div class="panel-heading">
-    <div class="panel-title">Adoption Form for {{animal.name}}</div>
+  <div class="panel-heading adoption-form-panel-heading">
+    <div class="panel-title adoption-form-panel-title">{{animal.name}}'s Adoption Form</div>
   </div>
   <div class="panel-body">
     <div class="row panel-interior">
-      <div class="panel-info col-sm-8">
+      <div class="panel-info adoption-form-panel-info col-sm-4">
         <p>Breed: {{animal.breed}}</p>
         <p>Sex: {{animal.sex}}</p>
         <p>Age: {{animal.dob}}</p>
       </div>
-      <img ng-src="{{animal.medium_url}}" class="col-sm-4" />
+      <img ng-src="{{animal.medium_url}}" class="adoption-form-image" />
 
       <div class="form-sent-confirmation col-sm-8" ng-show="adoptionFormSent">
         <div class="alert alert-success" role="alert">

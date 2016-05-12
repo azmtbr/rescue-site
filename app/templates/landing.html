@@ -11,6 +11,8 @@
 
 </div>
 
+
+<!-- Banner Editor -->
 <div class="container page-content">
   <div ng-cloak ng-show="user.signedIn" class="panel panel-default landing-gallery-uploader-panel">
     <div class="panel-heading landing-gallery-uploader-heading" role="tab">
@@ -41,19 +43,61 @@
     </div>
   </div>
 
+  <section class="rescue-donation container">
+    <div class="jumbotron">
+      <span><h3 class="dontation-box-heading">Donate to My Rescue Site</h3></span>
+      <div class="pp-canvasarea">
+        <span class="pp-formbox">
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" class="pp-form">
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="business" value="paypal@your-web-domain.com">
+          <input type="hidden" name="item_name" value="Donation Amount">
+          <input type="hidden" name="no_note" value="1">
+          <input type="hidden" name="currency_code" value="USD">
+
+          Donation Amount:<br>
+
+          <input type="text" name="amount" value="" class="pp-input"><br>
+
+          <input type="hidden" name="on0" value="Payment Details">
+
+          Special Message:<br>
+
+          <textarea name="os0" rows="4" cols="16" class="pp-textarea"></textarea><br>
+
+          <input type="submit" name="PaypalPayment" value="Send Donation" class="pp-button"><br>
+
+          </form>
+
+        </span>
+        <span class="donation-description container">
+          <p class="donation-description">My Rescue Site is focused on stopping the killing of nearly 4 million pets in shelters all across America. My Rescue Sites' work, alongside that of countless others, has dramatically reduced the number of animals being killed in shelters each year. Together, we really can make a difference for these deserving animals.</p>
+        </span>
+
+        <span class="badge-container">
+          <img src="/assets/images/paypal-badge.png" class="pp-badge" alt="Payments through Paypal">
+          <div class="pp-clear-float"></div>
+        </span>
+
+      </div>
+      </div>
+      <br>
+  </section>
+
+  <!-- Landing Points -->
   <section class="landing-points container clearfix">
      <div class="point column third">
-         <span class="ion-image"></span>
-         <h5 class="point-title">Help These Animals</h5>
+         <a href="/animals"><img src="/assets/images/Dakota.jpg" class="landing-third-image"></a>
+         <h4 class="point-title">Help These Animals</h4>
          <p class="point-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
      </div>
      <div class="point column third">
-         <span class="ion-image"></span>
-         <h5 class="point-title">Adopt Today</h5>
+         <a href="/contact"><img src="/assets/images/Keetah.jpg" class="landing-third-image"></a>
+         <h4 class="point-title">Adopt Today</h4>
          <p class="point-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
      </div>
      <div class="point column third">
-         <span class="ion-image"></span>
+         <a href="/contact"><img src="/assets/images/Emma.jpg" class="landing-third-image"></a>
          <h5 class="point-title">Support Our Rescue</h5>
          <p class="point-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
      </div>
