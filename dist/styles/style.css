@@ -235,7 +235,7 @@ h1 {
 }
 
 .banner.ng-scope {
-  margin-top: 79px;
+  margin-top: 51px;
   text-align: center;
 }
 
@@ -276,6 +276,10 @@ body > ui-view > div.banner.ng-scope > ul {
 .jumbotron {
   padding-top: 5px;
   padding-bottom: 18px;
+}
+
+.rescue-donation {
+  margin-top: 40px;
 }
 
 .jumbotron p {

@@ -2,13 +2,26 @@
 
 <!-- BANNER -->
 <div id="main" class="banner">
-
   <ul class="list-inline">
     <li ng-repeat="slide in slides">
       <img ng-src="{{slide.large_url}}">
     </li>
   </ul>
+</div>
 
+<!-- Temp App Description -->
+<div class="jumbotron temp-app-description">
+  <div class="container">
+    <h2>Why MyRescueSite?</h2>
+    <p>Having worked with two animal rescues in my area for over five years, I've seen how little time and other resources
+       are actually available to put towards creating a nice-looking, easy to interact with online presence. MyRescueSite
+       will cater to the things that an animal rescue actually needs to worry about from day to day. Creating, updating, and
+       removing the animal listings will be quick, easy, and will be able to be done from a mobile device unlike other template
+       based services. Adoption forms will be easy for the user to complete, as well as simple for the rescue to access and print
+       or save for their records. In short, each rescue will be able to update their very own rescue site with minimal time and effort, allowing
+       them more time to help animals find homes.
+    </p>
+  </div>
 </div>
 
 
@@ -43,46 +56,6 @@
     </div>
   </div>
 
-  <section class="rescue-donation container">
-    <div class="jumbotron">
-      <span><h3 class="dontation-box-heading">Donate to My Rescue Site</h3></span>
-      <div class="pp-canvasarea">
-        <span class="pp-formbox">
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" class="pp-form">
-          <input type="hidden" name="cmd" value="_xclick">
-          <input type="hidden" name="business" value="paypal@your-web-domain.com">
-          <input type="hidden" name="item_name" value="Donation Amount">
-          <input type="hidden" name="no_note" value="1">
-          <input type="hidden" name="currency_code" value="USD">
-
-          Donation Amount:<br>
-
-          <input type="text" name="amount" value="" class="pp-input"><br>
-
-          <input type="hidden" name="on0" value="Payment Details">
-
-          Special Message:<br>
-
-          <textarea name="os0" rows="4" cols="16" class="pp-textarea"></textarea><br>
-
-          <input type="submit" name="PaypalPayment" value="Send Donation" class="pp-button"><br>
-
-          </form>
-
-        </span>
-        <span class="donation-description container">
-          <p class="donation-description">My Rescue Site is focused on stopping the killing of nearly 4 million pets in shelters all across America. My Rescue Sites' work, alongside that of countless others, has dramatically reduced the number of animals being killed in shelters each year. Together, we really can make a difference for these deserving animals.</p>
-        </span>
-
-        <span class="badge-container">
-          <img src="/assets/images/paypal-badge.png" class="pp-badge" alt="Payments through Paypal">
-          <div class="pp-clear-float"></div>
-        </span>
-
-      </div>
-      </div>
-      <br>
-  </section>
 
   <!-- Landing Points -->
   <section class="landing-points container clearfix">
@@ -102,4 +75,48 @@
          <p class="point-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
      </div>
  </section>
+
+
+ <!-- Donation Container -->
+   <section class="rescue-donation container">
+     <div class="jumbotron">
+       <span><h3 class="dontation-box-heading">Donate to My Rescue Site</h3></span>
+       <div class="pp-canvasarea">
+         <span class="pp-formbox">
+           <form action="https://www.paypal.com/cgi-bin/webscr" method="post" class="pp-form">
+           <input type="hidden" name="cmd" value="_xclick">
+           <input type="hidden" name="business" value="paypal@your-web-domain.com">
+           <input type="hidden" name="item_name" value="Donation Amount">
+           <input type="hidden" name="no_note" value="1">
+           <input type="hidden" name="currency_code" value="USD">
+
+           Donation Amount:<br>
+
+           <input type="text" name="amount" value="" class="pp-input"><br>
+
+           <input type="hidden" name="on0" value="Payment Details">
+
+           Special Message:<br>
+
+           <textarea name="os0" rows="4" cols="16" class="pp-textarea"></textarea><br>
+
+           <input type="submit" name="PaypalPayment" value="Send Donation" class="pp-button"><br>
+
+           </form>
+
+         </span>
+         <span class="donation-description container">
+           <p class="donation-description">My Rescue Site is focused on stopping the killing of nearly 4 million pets in shelters all across America. My Rescue Sites' work, alongside that of countless others, has dramatically reduced the number of animals being killed in shelters each year. Together, we really can make a difference for these deserving animals.</p>
+         </span>
+
+         <span class="badge-container">
+           <img src="/assets/images/paypal-badge.png" class="pp-badge" alt="Payments through Paypal">
+           <div class="pp-clear-float"></div>
+         </span>
+
+       </div>
+       </div>
+       <br>
+   </section>
+
 </div>
