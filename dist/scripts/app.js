@@ -6,7 +6,6 @@
 		$authProvider.configure({
 			apiUrl: 'https://rescue-site-api.herokuapp.com/api'
 		});
-		
 
 
 // https://rescue-site-api.herokuapp.com/api
