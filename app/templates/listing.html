@@ -4,7 +4,7 @@
         <img class="profile-thumbnail" ng-src="{{animal.medium_url}}" />
         <div class="caption">
           <h3>{{animal.name}}</h3>
-          <p>These are some words about the animal that will be a quick bio as {{animal.short_bio}}</p>
+          <p>{{animal.short_bio}}</p>
           <p>
             <a ui-sref="profile({slug: animal.slug})" class="btn btn-default" role="button">View Profile</a>
             <a ui-sref="adoption({slug: animal.slug})" class="btn btn-default">Adopt {{animal.name}}</a>

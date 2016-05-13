@@ -6,9 +6,10 @@
 		$authProvider.configure({
 			apiUrl: 'https://rescue-site-api.herokuapp.com/api'
 		});
-		
+
 
 // https://rescue-site-api.herokuapp.com/api
+// http://127.0.0.1:4000/api
 
 		$locationProvider
 			.html5Mode({
