@@ -5,10 +5,7 @@
     <div class="panel-body">
       <div class="panel-body profile-image-block">
         <div class="animal-profile-description">
-          <p class="animal-description">Nulla vitae elit libero,
-            a pharetra augue. Aenean lacinia bibendum nulla sed consectetur.
-            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
-            Nullam id dolor id nibh ultricies vehicula ut id elit.
+          <p class="animal-description">{{animal.long_bio}}
           </p>
         </div>
         <div class="animal-profile-image">
@@ -54,6 +51,15 @@
         <label for="dob-update">Date of Birth (YYYY-MM-DD)</label>
         <input class="form-control" id="dob-update" ng-model="animal.dob" />
       </div>
+      <div class="form-group">
+        <label for="short-bio-update">Short Bio <small>(Will be shown on the animals' listing page tile)</small></label>
+        <input class="form-control" id="short-bio-update" ng-model="animal.short_bio" />
+      </div>
+      <div class="form-group">
+        <label for="long-bio-update">Long Bio <small>(Will be shown on this profile page)</small></label>
+        <textarea class="form-control" rows="3" id="long-bio-update" ng-model="animal.long_bio"></textarea>
+      </div>
+
 
       <div class="col-sm-4">
         <button class="btn btn-info profile-change-button" type="button" ng-click="updateProfile(animal)">
