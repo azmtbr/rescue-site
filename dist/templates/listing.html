@@ -1,4 +1,5 @@
 <div class="container page-content animal-listing-page">
+
   <div class="animal-listing-card col-sm-6 col-md-4 " ng-repeat="animal in animals">
     <div class="thumbnail">
         <img class="profile-thumbnail" ng-src="{{animal.medium_url}}" />
@@ -8,8 +9,61 @@
           <p>
             <a ui-sref="profile({slug: animal.slug})" class="btn btn-default" role="button">View Profile</a>
             <a ui-sref="adoption({slug: animal.slug})" class="btn btn-default">Adopt {{animal.name}}</a>
+            <button ng-show="user.signedIn" class="animal-profile-delete" ng-click="deleteAnimal(animal)"><i class="glyphicon glyphicon-remove"></i>Delete {{animal.name}}'s profile</button>
           </p>
         </div>
+    </div>
+  </div>
+
+  <div ng-if="user.signedIn" ng-show="user.signedIn" class="panel panel-default listing-create-panel">
+    <div class="panel-heading listing-create-heading" role="tab">
+      <h4 class="panel-title listing-create-title">
+        <button class="uploader-button" type="button" data-toggle="collapse" data-target="#listing-create-panel-collapse">
+          Add Animal Listing
+        </button>
+      </h4>
+    </div>
+
+    <div id="listing-create-panel-collapse" class="panel-collapse collapse listing-create-panel" role="tabpanel">
+      <div class="container listing-create-form">
+        <div class="form-group">
+          <label for="name-create">Name</label>
+          <input class="form-control" id="name-create" ng-model="animal.name" />
+        </div>
+        <div class="form-group">
+          <label for="breed-create">Breed</label>
+          <input class="form-control" id="breed-create" ng-model="animal.breed" />
+        </div>
+        <div class="form-group">
+          <label for="sex-create">Sex</label>
+          <input class="form-control" id="sex-create" ng-model="animal.sex" />
+        </div>
+        <div class="form-group">
+          <label for="dob-create">Date of Birth (YYYY-MM-DD)</label>
+          <input class="form-control" id="dob-create" ng-model="animal.dob" />
+        </div>
+        <div class="form-group">
+          <label for="short-bio-create">Short Bio <small>(Will be shown on the animals' listing page tile. Max char 255)</small></label>
+          <input class="form-control" id="short-bio-create" ng-model="animal.short_bio" />
+        </div>
+        <div class="form-group">
+          <label for="long-bio-create">Long Bio <small>(Will be shown on this profile page.)</small></label>
+          <textarea class="form-control" rows="3" id="long-bio-create" ng-model="animal.long_bio"></textarea>
+        </div>
+
+
+        <div class="col-sm-4">
+          <button class="btn btn-info profile-create-button" type="button" ng-click="addAnimal()">
+            Create Profile
+          </button>
+        </div>
+        <div class="animal-created-confirmation col-sm-8" ng-show="animalCreated">
+          <div class="alert alert-success" role="alert">
+            <strong>{{animal.name}}'s profile created</strong>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 </div>
