@@ -1,14 +1,18 @@
-.contact-form {
-  margin-top: 15px;
-}
 
-h1 {
-  margin-bottom: 0;
-  margin-top: 0;
-}
+/*Navigation and page*/
 
 .page-content {
   margin-top: 71px;
+  margin-bottom: 60px;
+}
+
+.navbar-header>h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.sign-in-info {
+  margin-top: -5px;
 }
 
 /*PROFILE PANEL*/
@@ -118,6 +122,14 @@ h1 {
   box-shadow: 1px 1px 1px 1px grey;
 }
 
+.listing-create-panel>div>h4 {
+  text-align: center;
+}
+
+.listing-create-title>button {
+  margin-top: -5px;
+}
+
 .animal-listing-page {
   display: flex;
   flex-direction: row;
@@ -128,6 +140,22 @@ h1 {
   order: 1;
   flex-grow: 1;
   max-width: 313px;
+}
+
+.animal-create-container {
+  margin-top: 71px;
+  margin-bottom: 20px;
+  width: 80%;
+}
+
+.profile-create-button {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.listing-create-form-container,
+.listing-create-form {
+  width: 100%;
 }
 
 .animal-listing-card .col-sm-6 {
@@ -350,6 +378,12 @@ body > ui-view > div.banner.ng-scope > ul {
   box-shadow: 1px 1px 1px 1px grey;
 }
 
+/*Contact form*/
+
+.contact-form {
+  margin-top: 15px;
+}
+
 @media (min-width: 64rem) {
     .column {
         float: left;
@@ -406,6 +440,10 @@ body > ui-view > div.banner.ng-scope > ul {
 
   .profile-image-block {
     text-align: center;
+  }
+
+  .animal-listing-page {
+    margin-top: -18px;
   }
 
   .uploader-action-button {

@@ -19,8 +19,12 @@
             <span class="glyphicon glyphicon-menu-hamburger"></span>
           </button>
           <h1 class="navbar-brand">
-            <a href="/">My Rescue Site</a>
-            <small ng-cloak ng-show="user.signedIn">Admin: {{user.email}}</small>
+            <div class="site-title">
+              <a href="/">My Rescue Site</a>
+            </div>
+            <div class="sign-in-info">
+              <small ng-cloak ng-show="user.signedIn">Admin: {{user.email}}</small>
+            </div>
           </h1>
         </div>
         <div class="navbar-collapse collapse">

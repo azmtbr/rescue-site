@@ -14,6 +14,11 @@
         $scope.animal = {rescue_id: rescue.id};
       })
 
+      $scope.clearForm = function() {
+        $scope.animal = {name: "", breed: "", email: "", sex: "", dob: "", short_bio: "",
+                         long_bio: ""};
+      }
+
 
       $scope.addAnimal = function() {
         Restangular.one('').post('rescues/' + rescue.id + '/animals', $scope.animal);
@@ -21,6 +26,7 @@
         Restangular.one('rescues', slug).all('animals').getList().then(function(animals) {
           $scope.animals = animals;
         })
+        $scope.clearForm();
         $timeout(function () {
           $scope.animalCreated = false;
         }, 5000);
