@@ -91,6 +91,16 @@
       }
     });
 
+    var text_max = 77;
+    $('#count_message').html(text_max + ' remaining');
+
+    $('#short-bio-update').keyup(function() {
+      var text_length = $('#short-bio-update').val().length;
+      var text_remaining = text_max - text_length;
+
+      $('#count_message').html(text_remaining + ' char remaining');
+    });
+
 
   }
 

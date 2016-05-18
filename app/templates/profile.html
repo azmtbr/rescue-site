@@ -52,11 +52,11 @@
         <input class="form-control" id="dob-update" ng-model="animal.dob" />
       </div>
       <div class="form-group">
-        <label for="short-bio-update">Short Bio <small>(Will be shown on the animals' listing page tile)</small></label>
-        <input class="form-control" id="short-bio-update" ng-model="animal.short_bio" />
+        <label for="short-bio-update">Short Bio <small>(Will be shown on the animals' listing page tile)</small><h6 class="pull-right" id="count_message"></h6></label>
+        <input class="form-control" maxlength="77" id="short-bio-update" ng-model="animal.short_bio" />
       </div>
       <div class="form-group">
-        <label for="long-bio-update">Long Bio <small>(Will be shown on this profile page. Max char 255)</small></label>
+        <label for="long-bio-update">Long Bio <small>(Will be shown on this profile page)</small></label>
         <textarea class="form-control" rows="3" id="long-bio-update" ng-model="animal.long_bio"></textarea>
       </div>
 
@@ -99,7 +99,7 @@
 <!-- Gallery Photos -->
 <div class="container">
   <div class="animal-gallery-card col-sm-6 col-md-4" ng-repeat="photo in photos">
-    <div class="thumbnail">
+    <div class="thumbnail gallery-thumbnail">
       <a ng-href="{{photo.large_url}}" >
         <img class="gallery-image" ng-src="{{photo.medium_url}}" />
       </a>

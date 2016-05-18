@@ -114,12 +114,25 @@
 
 /*LISTING PAGE*/
 
-.thumbnail {
+.listing-thumbnail {
+  min-height: 342px;
   padding-top: 11px;
   border: 2px solid #ddd;
   border-radius: 5px;
   background-color: #ddd;
   box-shadow: 1px 1px 1px 1px grey;
+}
+
+.listing-thumbnail-image {
+  max-height: 150px;
+  width: auto;
+  border-radius: 8px;
+  box-shadow: 1px 1px 1px 1px grey;
+}
+
+.caption>p {
+  min-height: 36px;
+  max-height: 40px;
 }
 
 .listing-create-panel>div>h4 {
@@ -132,8 +145,8 @@
 
 .animal-listing-page {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 .animal-listing-card {
@@ -249,6 +262,36 @@
 }
 
 /*Landing Content*/
+
+.landing-gallery-uploader-heading {
+  text-align: center;
+}
+
+.landing-gallery-uploader-collapse {
+  padding: 15px;
+}
+
+.landing-gallery-thumb-container {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.landing-thumbs {
+  order: 1;
+  flex-grow: 1;
+  text-align: center;
+  margin-bottom: 10px;
+  min-width: 150px;
+}
+
+.gallery-image-delete {
+  border-radius: 5px;
+  color: red;
+  background-color: maroon;
+}
+
 
 
 /*landing banner*/
@@ -372,6 +415,7 @@ body > ui-view > div.banner.ng-scope > ul {
 }
 
 .landing-third-image {
+  max-width: 400px;
   width: 90%;
   height: auto;
   border-radius: 10px;
@@ -442,6 +486,14 @@ body > ui-view > div.banner.ng-scope > ul {
     text-align: center;
   }
 
+  .animal-listing-card {
+    margin: auto;
+  }
+
+  .animal-profile-image {
+    float: none;
+  }
+
   .animal-listing-page {
     margin-top: -18px;
   }
@@ -464,10 +516,9 @@ body > ui-view > div.banner.ng-scope > ul {
     color: dimgrey;
   }
 
-  .landing-image-thumb {
+  .landing-thumb {
     display: inline;
-    max-width: 84px;
-    margin-bottom: 5px;
+    min-width: 150px;
   }
 
   .gallery-image-delete {

@@ -45,10 +45,14 @@
       </div>
 
       <div class="landing-gallery-thumb-container container">
-        <span class="landing-thumbs" ng-repeat="slide in slides">
-          <img class="landing-image-thumb" ng-src="{{slide.thumb_url}}" />
-          <button ng-show="user.signedIn" class="gallery-image-delete" ng-click="deletePic(slide)"><i class="glyphicon glyphicon-remove"></i></button>
-        </span>
+        <div class="landing-thumbs" ng-repeat="slide in slides">
+          <div>
+            <img class="landing-image-thumb" ng-src="{{slide.thumb_url}}" />
+          </div>
+          <div>
+            <button ng-show="user.signedIn" class="gallery-image-delete" ng-click="deletePic(slide)"><i class="glyphicon glyphicon-remove"></i></button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
