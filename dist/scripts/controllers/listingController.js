@@ -21,12 +21,10 @@
 
 
       $scope.addAnimal = function() {
-        Restangular.one('').post('rescues/' + rescue.id + '/animals', $scope.animal);
+        $scope.animals.push($scope.animal);
         $scope.animalCreated = true;
-        Restangular.one('rescues', slug).all('animals').getList().then(function(animals) {
-          $scope.animals = animals;
-        })
         $scope.clearForm();
+
         $timeout(function () {
           $scope.animalCreated = false;
         }, 5000);
