@@ -22,13 +22,16 @@
 
       $scope.addAnimal = function() {
         Restangular.one('').post('rescues/' + rescue.id + '/animals', $scope.animal).then(function(response) {
-          $scope.animals.unshift($scope.animal);
-        })
-        Restangular.one('rescues', slug).all('animals').getList().then(function(animals) {
-          $scope.animals = animals;
+          $scope.animals.push($scope.animal);
         })
         $scope.animalCreated = true;
         $scope.clearForm();
+
+        $timeout(function () {
+          Restangular.one('rescues', slug).all('animals').getList().then(function(animals) {
+            $scope.animals = animals;
+          })
+        }, 800)
 
         $timeout(function () {
           $scope.animalCreated = false;

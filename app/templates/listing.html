@@ -58,7 +58,7 @@
 
  <!-- Animal Listings  -->
 <div class="container page-content animal-listing-page">
-  <div class="animal-listing-card col-sm-6 col-md-4" ng-repeat="animal in animals">
+  <div class="animal-listing-card col-sm-6 col-md-4" ng-repeat="animal in animals | orderBy : '-created_at'">
     <div class="thumbnail listing-thumbnail">
         <img class="listing-thumbnail-image" ng-src="{{animal.medium_url}}" />
         <div class="caption">

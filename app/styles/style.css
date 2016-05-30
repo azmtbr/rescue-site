@@ -145,7 +145,8 @@
 
 .animal-listing-page {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row-reverse;
+  flex-wrap: wrap-reverse;
   justify-content: center;
 }
 
